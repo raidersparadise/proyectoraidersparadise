@@ -1,4 +1,4 @@
-BASE DE DATOS
+BASE DE DATOS 
 
 
 CREATE DATABASE RaiderParadise;
