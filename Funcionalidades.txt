@@ -1,0 +1,23 @@
+July Rodriguez
+HU 01 Gestion de usuarios
+HU 02 login 
+HU 03 Gestion de roles
+HU 04 recuperacion de contraseña 
+
+Julian Bejarano
+HU 05 Resgistrar producto 
+HU 06 Actualizar producto
+HU 07 Consultar catalogo 
+HU 08 Actualizar inventario 
+
+Dylan Leon 
+HU 09 Alertas de stok bajo
+HU 10 Gestion de carrito
+HU 11 Crear orden de compra 
+HU 12 Resgistrar pago
+
+Maria Jose Roldan
+HU 13 Crear ticket
+HU 14 Responder ticket
+HU 15 Calificar producto
+HU 16 Unir todos los modulos
