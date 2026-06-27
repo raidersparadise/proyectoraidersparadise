@@ -1,267 +1,494 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Apex Moto | Rate Product</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .star-active {
-            font-variation-settings: 'FILL' 1;
-            background: linear-gradient(to right, #ffb4ab, #93000a); /* Closest theme-aligned gradient mapping to the orange/red request */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .glass-panel {
-            background: rgba(32, 31, 34, 0.6);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #46464e;
-            border-radius: 10px;
-        }
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Apex Moto | Rate Product</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .star-active {
+        font-variation-settings: "FILL" 1;
+        background: linear-gradient(
+          to right,
+          #ffb4ab,
+          #93000a
+        ); /* Closest theme-aligned gradient mapping to the orange/red request */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass-panel {
+        background: rgba(32, 31, 34, 0.6);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #46464e;
+        border-radius: 10px;
+      }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-primary-fixed-variant": "#40446b",
-                        "on-surface-variant": "#c7c5cf",
-                        "outline-variant": "#46464e",
-                        "tertiary-container": "#362100",
-                        "surface-dim": "#131316",
-                        "surface-container-low": "#1b1b1e",
-                        "on-primary-fixed": "#14183d",
-                        "on-error-container": "#ffdad6",
-                        "surface": "#131316",
-                        "background": "#131316",
-                        "on-primary-container": "#8689b5",
-                        "on-primary": "#292d53",
-                        "inverse-on-surface": "#303033",
-                        "on-secondary-fixed": "#1f025e",
-                        "secondary-fixed-dim": "#ccbeff",
-                        "tertiary": "#e6c08f",
-                        "surface-variant": "#353437",
-                        "primary-fixed": "#dfe0ff",
-                        "on-error": "#690005",
-                        "on-tertiary-fixed": "#291800",
-                        "on-surface": "#e5e1e5",
-                        "surface-container": "#201f22",
-                        "secondary-fixed": "#e7deff",
-                        "on-tertiary": "#432c07",
-                        "inverse-surface": "#e5e1e5",
-                        "primary": "#c0c3f2",
-                        "surface-container-lowest": "#0e0e11",
-                        "error": "#ffb4ab",
-                        "secondary-container": "#4d3b8d",
-                        "inverse-primary": "#575b84",
-                        "error-container": "#93000a",
-                        "surface-tint": "#c0c3f2",
-                        "surface-container-highest": "#353437",
-                        "outline": "#919099",
-                        "secondary": "#ccbeff",
-                        "on-secondary": "#342072",
-                        "surface-bright": "#39393c",
-                        "primary-container": "#1e2247",
-                        "on-background": "#e5e1e5",
-                        "on-tertiary-container": "#a8875a",
-                        "tertiary-fixed-dim": "#e6c08f",
-                        "on-tertiary-fixed-variant": "#5c421b",
-                        "on-secondary-container": "#beadff",
-                        "surface-container-high": "#2a2a2d",
-                        "tertiary-fixed": "#ffddb3",
-                        "primary-fixed-dim": "#c0c3f2",
-                        "on-secondary-fixed-variant": "#4b398a"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "section-gap": "120px",
-                        "margin-mobile": "20px",
-                        "base": "8px",
-                        "margin-desktop": "64px",
-                        "container-max": "1280px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Montserrat"],
-                        "headline-md": ["Montserrat"],
-                        "display-lg-mobile": ["Montserrat"],
-                        "headline-lg": ["Montserrat"],
-                        "body-lg": ["Montserrat"],
-                        "label-md": ["Montserrat"],
-                        "body-md": ["Montserrat"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-                    }
-                },
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#40446b",
+              "on-surface-variant": "#c7c5cf",
+              "outline-variant": "#46464e",
+              "tertiary-container": "#362100",
+              "surface-dim": "#131316",
+              "surface-container-low": "#1b1b1e",
+              "on-primary-fixed": "#14183d",
+              "on-error-container": "#ffdad6",
+              surface: "#131316",
+              background: "#131316",
+              "on-primary-container": "#8689b5",
+              "on-primary": "#292d53",
+              "inverse-on-surface": "#303033",
+              "on-secondary-fixed": "#1f025e",
+              "secondary-fixed-dim": "#ccbeff",
+              tertiary: "#e6c08f",
+              "surface-variant": "#353437",
+              "primary-fixed": "#dfe0ff",
+              "on-error": "#690005",
+              "on-tertiary-fixed": "#291800",
+              "on-surface": "#e5e1e5",
+              "surface-container": "#201f22",
+              "secondary-fixed": "#e7deff",
+              "on-tertiary": "#432c07",
+              "inverse-surface": "#e5e1e5",
+              primary: "#c0c3f2",
+              "surface-container-lowest": "#0e0e11",
+              error: "#ffb4ab",
+              "secondary-container": "#4d3b8d",
+              "inverse-primary": "#575b84",
+              "error-container": "#93000a",
+              "surface-tint": "#c0c3f2",
+              "surface-container-highest": "#353437",
+              outline: "#919099",
+              secondary: "#ccbeff",
+              "on-secondary": "#342072",
+              "surface-bright": "#39393c",
+              "primary-container": "#1e2247",
+              "on-background": "#e5e1e5",
+              "on-tertiary-container": "#a8875a",
+              "tertiary-fixed-dim": "#e6c08f",
+              "on-tertiary-fixed-variant": "#5c421b",
+              "on-secondary-container": "#beadff",
+              "surface-container-high": "#2a2a2d",
+              "tertiary-fixed": "#ffddb3",
+              "primary-fixed-dim": "#c0c3f2",
+              "on-secondary-fixed-variant": "#4b398a",
             },
-        }
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "section-gap": "120px",
+              "margin-mobile": "20px",
+              base: "8px",
+              "margin-desktop": "64px",
+              "container-max": "1280px",
+              gutter: "24px",
+            },
+            fontFamily: {
+              "display-lg": ["Montserrat"],
+              "headline-md": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "headline-lg": ["Montserrat"],
+              "body-lg": ["Montserrat"],
+              "label-md": ["Montserrat"],
+              "body-md": ["Montserrat"],
+            },
+            fontSize: {
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
     </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
   </head>
-<body class="bg-background text-on-surface font-body-md overflow-x-hidden custom-scrollbar">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] flex justify-between items-center h-20 px-margin-mobile w-full">
-<div class="flex items-center gap-4">
-<button class="active:scale-95 transition-transform text-primary">
-<span class="material-symbols-outlined">menu</span>
-</button>
-<h1 class="font-display-lg-mobile text-display-lg-mobile font-black italic text-primary uppercase tracking-widest">APEX MOTO</h1>
-</div>
-<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
-<img class="w-full h-full object-cover" data-alt="A professional close-up studio portrait of a motorcycle enthusiast with a sleek, modern helmet tucked under one arm. The lighting is dramatic and moody, utilizing deep shadows and sharp highlights to emphasize the metallic textures and the dark theme of the Apex Moto brand. The overall aesthetic is premium, high-tech, and elite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVqYIebzvHfDw1jc5gyCg03BP9eWLzHAQCpzX8Ia4lBkoZ9yHZMafKkBGe4t751eHQlXc77k6eFocZvXst_x1-wSF7IcXmfc3MaIvwWcUy3DrOrURwv3EMbXuZ4BA00VV4uIHmUHUxDmj1MQkU9532Bwpvo4p7HBmFdkyCxm6P4EJ9p-4cmkvMlxy3HqT6B3FF1nZYw_sOJS-q7cGdj6ZUrwLGJktAsNu9cwyJg24E9EUEMb8-3s09O769MKkluMACASoJlqHgjC6Q"/>
-</div>
-</header>
-<main class="pt-24 pb-32 px-margin-mobile max-w-container-max mx-auto">
-<!-- Product Summary Section -->
-<section class="mb-10">
-<div class="glass-panel rounded-xl p-6 flex items-center gap-6">
-<div class="w-24 h-24 rounded-lg overflow-hidden bg-surface-container-highest shrink-0">
-<img class="w-full h-full object-cover" data-alt="A high-performance aerodynamic carbon fiber motorcycle helmet with a matte finish and subtle purple accents, displayed in a high-tech laboratory setting. The background is dark and futuristic, with cool blue and purple ambient lighting reflecting off the polished carbon surfaces. The shot is captured with a shallow depth of field to highlight the intricate weave of the carbon fiber material." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2nbLzpUS283eR1uTRjXxd7qTQEAco9Aub-RharnDzTXiwSAmj66-L-psj1pd-fcVOvCcvJSWXbvZmSrIyWjxWiWsD-b7FbFJFqbBaNNfAa5bgWKeTy1fu6D8mL6T-SSPkrzUS1Z_f78eMicKReUMBJd1FgEK3bcM9tQ33zhnauqnxgmBjWMjNhQWvcGnZC4p7Xwx2wOq1lpD4AKqkVDyi2vIfBfR5-KJe7MvqR-Q2ymr2laWNWWgvDpmbhHgpfqBuI9lR-2XIu1L4"/>
-</div>
-<div>
-<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Carbon Fiber Pro X</h2>
-<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Aero-Dynamics Collection</p>
-<div class="flex items-center gap-2 mt-2">
-<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-[10px]">VERIFIED PURCHASE</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Star Rating Section -->
-<section class="mb-10 text-center">
-<h3 class="font-headline-lg text-headline-lg mb-4">How was your ride?</h3>
-<div class="flex justify-center gap-2 mb-2" id="star-container">
-<button class="star-btn transition-transform active:scale-90" onclick="setRating(1)"><span class="material-symbols-outlined text-4xl" data-icon="star">star</span></button>
-<button class="star-btn transition-transform active:scale-90" onclick="setRating(2)"><span class="material-symbols-outlined text-4xl" data-icon="star">star</span></button>
-<button class="star-btn transition-transform active:scale-90" onclick="setRating(3)"><span class="material-symbols-outlined text-4xl" data-icon="star">star</span></button>
-<button class="star-btn transition-transform active:scale-90" onclick="setRating(4)"><span class="material-symbols-outlined text-4xl" data-icon="star">star</span></button>
-<button class="star-btn transition-transform active:scale-90" onclick="setRating(5)"><span class="material-symbols-outlined text-4xl" data-icon="star">star</span></button>
-</div>
-<p class="text-on-surface-variant font-label-md uppercase tracking-widest h-6" id="rating-text">Tap to rate</p>
-</section>
-<!-- Attribute Tags -->
-<section class="mb-10">
-<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4">Select Key Strengths</h4>
-<div class="flex flex-wrap gap-3">
-<button class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50" onclick="toggleTag(this)">Quality</button>
-<button class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50" onclick="toggleTag(this)">Durability</button>
-<button class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50 text-primary border-primary/40 bg-primary-container/20" onclick="toggleTag(this)">Performance</button>
-<button class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50" onclick="toggleTag(this)">Design</button>
-<button class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50" onclick="toggleTag(this)">Safety</button>
-<button class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50" onclick="toggleTag(this)">Aerodynamics</button>
-</div>
-</section>
-<!-- Detailed Review Text Area -->
-<section class="mb-10">
-<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4">Detailed Feedback</h4>
-<div class="relative group">
-<textarea class="w-full h-40 glass-panel rounded-xl p-6 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-secondary focus:outline-none transition-all duration-500 resize-none" placeholder="Share your experience with other riders..."></textarea>
-<div class="absolute bottom-4 right-4 text-[10px] font-label-md text-on-surface-variant/30">MIN 20 CHARACTERS</div>
-</div>
-</section>
-<!-- Photo Upload Section -->
-<section class="mb-12">
-<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4">Share the Vision (Photos)</h4>
-<div class="grid grid-cols-3 gap-4">
-<label class="cursor-pointer aspect-square rounded-xl glass-panel flex flex-col items-center justify-center border-dashed border-2 border-outline/30 hover:border-primary transition-colors group">
-<input class="hidden" type="file"/>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl">add_a_photo</span>
-<span class="font-label-md text-[10px] mt-2 text-on-surface-variant">UPLOAD</span>
-</label>
-<!-- Placeholder uploaded image states -->
-<div class="relative aspect-square rounded-xl overflow-hidden glass-panel">
-<img class="w-full h-full object-cover opacity-60" data-alt="A stylized, close-up photograph of the back of a rider's head wearing a sleek carbon fiber helmet, taken in a parking garage with neon signs reflecting off the matte surface. The shot is high-contrast, leaning into the dark mode aesthetic of the app, with vibrant purple and orange light streaks visible in the background, creating a sense of dynamic speed and nocturnal mystery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Y_suPnQh8lXvr4KMUIpA0gNaV8od8NLNSpr5SD9KnMVhOkrr2O7srhW0FmB48bJEu_pYwVd_NdaMrh3wYNmHza9OXqwqYLLnXD5Av5-vY-o-pXa0Bb683ylUihihrOsOdn-7vWlJqa-l0p2w9qitub0vcCZWoWJIbPoG4ZkX52xWxQgFLlbZIft4BDvlIm2C33-J9WPqY2W_1QwNFM7MaYD7MXoHhwsz4Cm5bVlLMlGo-C-ZDad3S4C6Fp2Jo5bCgQ2ZdzEtiQIO"/>
-<button class="absolute top-1 right-1 bg-background/80 rounded-full p-1"><span class="material-symbols-outlined text-sm">close</span></button>
-</div>
-</div>
-</section>
-<!-- Submit Button -->
-<section class="mb-12">
-<button class="w-full py-5 rounded-full bg-gradient-to-r from-[#ffb4ab] to-[#93000a] text-white font-bold text-label-md uppercase tracking-[0.2em] shadow-[0_8px_32px_0_rgba(147,0,10,0.3)] active:scale-95 transition-transform">
-                Publicar Calificación
-            </button>
-<p class="text-center text-[11px] text-on-surface-variant mt-6 opacity-60">
-                By publishing, you agree to our Community Guidelines and Content Terms.
+  <body
+    class="bg-background text-on-surface font-body-md overflow-x-hidden custom-scrollbar"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] flex justify-between items-center h-20 px-margin-mobile w-full"
+    >
+      <div class="flex items-center gap-4">
+        <button class="active:scale-95 transition-transform text-primary">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h1
+          class="font-display-lg-mobile text-display-lg-mobile font-black italic text-primary uppercase tracking-widest"
+        >
+          APEX MOTO
+        </h1>
+      </div>
+      <div
+        class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20"
+      >
+        <img
+          class="w-full h-full object-cover"
+          data-alt="A professional close-up studio portrait of a motorcycle enthusiast with a sleek, modern helmet tucked under one arm. The lighting is dramatic and moody, utilizing deep shadows and sharp highlights to emphasize the metallic textures and the dark theme of the Apex Moto brand. The overall aesthetic is premium, high-tech, and elite."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVqYIebzvHfDw1jc5gyCg03BP9eWLzHAQCpzX8Ia4lBkoZ9yHZMafKkBGe4t751eHQlXc77k6eFocZvXst_x1-wSF7IcXmfc3MaIvwWcUy3DrOrURwv3EMbXuZ4BA00VV4uIHmUHUxDmj1MQkU9532Bwpvo4p7HBmFdkyCxm6P4EJ9p-4cmkvMlxy3HqT6B3FF1nZYw_sOJS-q7cGdj6ZUrwLGJktAsNu9cwyJg24E9EUEMb8-3s09O769MKkluMACASoJlqHgjC6Q"
+        />
+      </div>
+    </header>
+    <main class="pt-24 pb-32 px-margin-mobile max-w-container-max mx-auto">
+      <!-- Product Summary Section -->
+      <section class="mb-10">
+        <div class="glass-panel rounded-xl p-6 flex items-center gap-6">
+          <div
+            class="w-24 h-24 rounded-lg overflow-hidden bg-surface-container-highest shrink-0"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A high-performance aerodynamic carbon fiber motorcycle helmet with a matte finish and subtle purple accents, displayed in a high-tech laboratory setting. The background is dark and futuristic, with cool blue and purple ambient lighting reflecting off the polished carbon surfaces. The shot is captured with a shallow depth of field to highlight the intricate weave of the carbon fiber material."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2nbLzpUS283eR1uTRjXxd7qTQEAco9Aub-RharnDzTXiwSAmj66-L-psj1pd-fcVOvCcvJSWXbvZmSrIyWjxWiWsD-b7FbFJFqbBaNNfAa5bgWKeTy1fu6D8mL6T-SSPkrzUS1Z_f78eMicKReUMBJd1FgEK3bcM9tQ33zhnauqnxgmBjWMjNhQWvcGnZC4p7Xwx2wOq1lpD4AKqkVDyi2vIfBfR5-KJe7MvqR-Q2ymr2laWNWWgvDpmbhHgpfqBuI9lR-2XIu1L4"
+            />
+          </div>
+          <div>
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-1">
+              Carbon Fiber Pro X
+            </h2>
+            <p
+              class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest"
+            >
+              Aero-Dynamics Collection
             </p>
-</section>
-</main>
-<!-- BottomNavBar -->
-<nav class="fixed bottom-0 w-full z-50 bg-surface-container/90 dark:bg-surface-container/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-8px_32px_0_rgba(0,0,0,0.4)] flex justify-around items-center h-20 pb-safe w-full">
-<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-label-md text-label-md uppercase tracking-widest mt-1">Home</span>
-</a>
-<a class="flex flex-col items-center justify-center text-primary font-bold transition-all duration-300 scale-110 active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="motorcycle" style="font-variation-settings: 'FILL' 1;">motorcycle</span>
-<span class="font-label-md text-label-md uppercase tracking-widest mt-1">Catalog</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
-<span class="font-label-md text-label-md uppercase tracking-widest mt-1">Support</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-label-md text-label-md uppercase tracking-widest mt-1">Profile</span>
-</a>
-</nav>
-<script>
-        function setRating(rating) {
-            const stars = document.querySelectorAll('.star-btn span');
-            const ratingText = document.getElementById('rating-text');
-            const feedback = ["Ride poor", "Needs improvement", "Good experience", "Exceptional quality", "Absolute Perfection"];
-            
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.add('star-active');
-                } else {
-                    star.classList.remove('star-active');
-                }
-            });
-            
-            ratingText.innerText = feedback[rating - 1].toUpperCase();
-            ratingText.classList.add('animate-pulse');
-            setTimeout(() => ratingText.classList.remove('animate-pulse'), 500);
-        }
+            <div class="flex items-center gap-2 mt-2">
+              <span
+                class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-[10px]"
+                >VERIFIED PURCHASE</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Star Rating Section -->
+      <section class="mb-10 text-center">
+        <h3 class="font-headline-lg text-headline-lg mb-4">
+          How was your ride?
+        </h3>
+        <div class="flex justify-center gap-2 mb-2" id="star-container">
+          <button
+            class="star-btn transition-transform active:scale-90"
+            onclick="setRating(1)"
+          >
+            <span class="material-symbols-outlined text-4xl" data-icon="star"
+              >star</span
+            >
+          </button>
+          <button
+            class="star-btn transition-transform active:scale-90"
+            onclick="setRating(2)"
+          >
+            <span class="material-symbols-outlined text-4xl" data-icon="star"
+              >star</span
+            >
+          </button>
+          <button
+            class="star-btn transition-transform active:scale-90"
+            onclick="setRating(3)"
+          >
+            <span class="material-symbols-outlined text-4xl" data-icon="star"
+              >star</span
+            >
+          </button>
+          <button
+            class="star-btn transition-transform active:scale-90"
+            onclick="setRating(4)"
+          >
+            <span class="material-symbols-outlined text-4xl" data-icon="star"
+              >star</span
+            >
+          </button>
+          <button
+            class="star-btn transition-transform active:scale-90"
+            onclick="setRating(5)"
+          >
+            <span class="material-symbols-outlined text-4xl" data-icon="star"
+              >star</span
+            >
+          </button>
+        </div>
+        <p
+          class="text-on-surface-variant font-label-md uppercase tracking-widest h-6"
+          id="rating-text"
+        >
+          Tap to rate
+        </p>
+      </section>
+      <!-- Attribute Tags -->
+      <section class="mb-10">
+        <h4
+          class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4"
+        >
+          Select Key Strengths
+        </h4>
+        <div class="flex flex-wrap gap-3">
+          <button
+            class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50"
+            onclick="toggleTag(this)"
+          >
+            Quality
+          </button>
+          <button
+            class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50"
+            onclick="toggleTag(this)"
+          >
+            Durability
+          </button>
+          <button
+            class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50 text-primary border-primary/40 bg-primary-container/20"
+            onclick="toggleTag(this)"
+          >
+            Performance
+          </button>
+          <button
+            class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50"
+            onclick="toggleTag(this)"
+          >
+            Design
+          </button>
+          <button
+            class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50"
+            onclick="toggleTag(this)"
+          >
+            Safety
+          </button>
+          <button
+            class="tag-btn glass-panel px-5 py-2 rounded-full font-label-md transition-all duration-300 hover:border-primary/50"
+            onclick="toggleTag(this)"
+          >
+            Aerodynamics
+          </button>
+        </div>
+      </section>
+      <!-- Detailed Review Text Area -->
+      <section class="mb-10">
+        <h4
+          class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4"
+        >
+          Detailed Feedback
+        </h4>
+        <div class="relative group">
+          <textarea
+            class="w-full h-40 glass-panel rounded-xl p-6 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-secondary focus:outline-none transition-all duration-500 resize-none"
+            placeholder="Share your experience with other riders..."
+          ></textarea>
+          <div
+            class="absolute bottom-4 right-4 text-[10px] font-label-md text-on-surface-variant/30"
+          >
+            MIN 20 CHARACTERS
+          </div>
+        </div>
+      </section>
+      <!-- Photo Upload Section -->
+      <section class="mb-12">
+        <h4
+          class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4"
+        >
+          Share the Vision (Photos)
+        </h4>
+        <div class="grid grid-cols-3 gap-4">
+          <label
+            class="cursor-pointer aspect-square rounded-xl glass-panel flex flex-col items-center justify-center border-dashed border-2 border-outline/30 hover:border-primary transition-colors group"
+          >
+            <input class="hidden" type="file" />
+            <span
+              class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-3xl"
+              >add_a_photo</span
+            >
+            <span class="font-label-md text-[10px] mt-2 text-on-surface-variant"
+              >UPLOAD</span
+            >
+          </label>
+          <!-- Placeholder uploaded image states -->
+          <div
+            class="relative aspect-square rounded-xl overflow-hidden glass-panel"
+          >
+            <img
+              class="w-full h-full object-cover opacity-60"
+              data-alt="A stylized, close-up photograph of the back of a rider's head wearing a sleek carbon fiber helmet, taken in a parking garage with neon signs reflecting off the matte surface. The shot is high-contrast, leaning into the dark mode aesthetic of the app, with vibrant purple and orange light streaks visible in the background, creating a sense of dynamic speed and nocturnal mystery."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Y_suPnQh8lXvr4KMUIpA0gNaV8od8NLNSpr5SD9KnMVhOkrr2O7srhW0FmB48bJEu_pYwVd_NdaMrh3wYNmHza9OXqwqYLLnXD5Av5-vY-o-pXa0Bb683ylUihihrOsOdn-7vWlJqa-l0p2w9qitub0vcCZWoWJIbPoG4ZkX52xWxQgFLlbZIft4BDvlIm2C33-J9WPqY2W_1QwNFM7MaYD7MXoHhwsz4Cm5bVlLMlGo-C-ZDad3S4C6Fp2Jo5bCgQ2ZdzEtiQIO"
+            />
+            <button
+              class="absolute top-1 right-1 bg-background/80 rounded-full p-1"
+            >
+              <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Submit Button -->
+      <section class="mb-12">
+        <button
+          class="w-full py-5 rounded-full bg-gradient-to-r from-[#ffb4ab] to-[#93000a] text-white font-bold text-label-md uppercase tracking-[0.2em] shadow-[0_8px_32px_0_rgba(147,0,10,0.3)] active:scale-95 transition-transform"
+        >
+          Publicar Calificación
+        </button>
+        <p
+          class="text-center text-[11px] text-on-surface-variant mt-6 opacity-60"
+        >
+          By publishing, you agree to our Community Guidelines and Content
+          Terms.
+        </p>
+      </section>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+      class="fixed bottom-0 w-full z-50 bg-surface-container/90 dark:bg-surface-container/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-8px_32px_0_rgba(0,0,0,0.4)] flex justify-around items-center h-20 pb-safe w-full"
+    >
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+        <span class="font-label-md text-label-md uppercase tracking-widest mt-1"
+          >Home</span
+        >
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-primary font-bold transition-all duration-300 scale-110 active:scale-90 transition-transform"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined"
+          data-icon="motorcycle"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >motorcycle</span
+        >
+        <span class="font-label-md text-label-md uppercase tracking-widest mt-1"
+          >Catalog</span
+        >
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="support_agent"
+          >support_agent</span
+        >
+        <span class="font-label-md text-label-md uppercase tracking-widest mt-1"
+          >Support</span
+        >
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 transition-transform"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+        <span class="font-label-md text-label-md uppercase tracking-widest mt-1"
+          >Profile</span
+        >
+      </a>
+    </nav>
+    <script>
+      function setRating(rating) {
+        const stars = document.querySelectorAll(".star-btn span");
+        const ratingText = document.getElementById("rating-text");
+        const feedback = [
+          "Ride poor",
+          "Needs improvement",
+          "Good experience",
+          "Exceptional quality",
+          "Absolute Perfection",
+        ];
 
-        function toggleTag(el) {
-            el.classList.toggle('text-primary');
-            el.classList.toggle('border-primary/40');
-            el.classList.toggle('bg-primary-container/20');
-        }
+        stars.forEach((star, index) => {
+          if (index < rating) {
+            star.classList.add("star-active");
+          } else {
+            star.classList.remove("star-active");
+          }
+        });
 
-        // Initialize state
-        setRating(0);
+        ratingText.innerText = feedback[rating - 1].toUpperCase();
+        ratingText.classList.add("animate-pulse");
+        setTimeout(() => ratingText.classList.remove("animate-pulse"), 500);
+      }
+
+      function toggleTag(el) {
+        el.classList.toggle("text-primary");
+        el.classList.toggle("border-primary/40");
+        el.classList.toggle("bg-primary-container/20");
+      }
+
+      // Initialize state
+      setRating(0);
     </script>
-</body></html>
+  </body>
+</html>
