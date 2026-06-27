@@ -1,9 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext(null);
+const AuthContext = createContext();
 
 const STATIC_USER = {
-  username: "ana@example.com",
+  email: "admin@empresa.com",
   password: "admin123",
   name: "Administrador",
 };
@@ -11,16 +11,15 @@ const STATIC_USER = {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const login = (username, password) => {
+  const login = (email, password) => {
     if (
-      username === STATIC_USER.username &&
+      email === STATIC_USER.email &&
       password === STATIC_USER.password
     ) {
       setUser({
         name: STATIC_USER.name,
-        username: STATIC_USER.username,
+        email: STATIC_USER.email,
       });
-
       return true;
     }
 
