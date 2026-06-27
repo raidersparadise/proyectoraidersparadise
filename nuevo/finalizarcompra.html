@@ -1,0 +1,609 @@
+<!doctype html>
+
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Apex Moto | Registro de Pago</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #131316;
+        color: #e5e1e5;
+        overflow-x: hidden;
+      }
+
+      .glass-panel {
+        background: rgba(42, 42, 45, 0.4);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+      }
+
+      .brand-gradient {
+        background: linear-gradient(135deg, #ff5f00 0%, #ff2e00 100%);
+      }
+
+      .brand-gradient-hover:hover {
+        background: linear-gradient(135deg, #ff7a29 0%, #ff451a 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px rgba(255, 71, 0, 0.4);
+      }
+
+      .input-glow:focus {
+        outline: none;
+        border-color: #554395;
+        box-shadow: 0 0 10px rgba(85, 67, 149, 0.3);
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #131316;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #46464e;
+        border-radius: 10px;
+      }
+
+      .selection-active {
+        border: 2px solid #c0c3f2;
+        background: rgba(192, 195, 242, 0.1);
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#2a2a2d",
+              "primary-fixed-dim": "#c0c3f2",
+              primary: "#c0c3f2",
+              "on-tertiary-container": "#a8875a",
+              "error-container": "#93000a",
+              tertiary: "#e6c08f",
+              "outline-variant": "#46464e",
+              "on-secondary": "#342072",
+              "on-error-container": "#ffdad6",
+              "secondary-fixed": "#e7deff",
+              "inverse-primary": "#575b84",
+              "surface-variant": "#353437",
+              "surface-dim": "#131316",
+              "secondary-container": "#4d3b8d",
+              "on-background": "#e5e1e5",
+              secondary: "#ccbeff",
+              outline: "#919099",
+              "on-primary": "#292d53",
+              "tertiary-container": "#362100",
+              "on-surface-variant": "#c7c5cf",
+              "on-error": "#690005",
+              "primary-fixed": "#dfe0ff",
+              "on-primary-fixed": "#14183d",
+              error: "#ffb4ab",
+              "tertiary-fixed": "#ffddb3",
+              "on-secondary-fixed-variant": "#4b398a",
+              "on-tertiary": "#432c07",
+              "surface-container-low": "#1b1b1e",
+              "secondary-fixed-dim": "#ccbeff",
+              "on-tertiary-fixed": "#291800",
+              "inverse-surface": "#e5e1e5",
+              "on-secondary-container": "#beadff",
+              background: "#131316",
+              "on-surface": "#e5e1e5",
+              "surface-container-lowest": "#0e0e11",
+              "on-primary-container": "#8689b5",
+              "primary-container": "#1e2247",
+              "on-tertiary-fixed-variant": "#5c421b",
+              "surface-bright": "#39393c",
+              "surface-container-highest": "#353437",
+              "tertiary-fixed-dim": "#e6c08f",
+              "on-secondary-fixed": "#1f025e",
+              "surface-tint": "#c0c3f2",
+              surface: "#131316",
+              "inverse-on-surface": "#303033",
+              "surface-container": "#201f22",
+              "on-primary-fixed-variant": "#40446b",
+            },
+            spacing: {
+              "section-gap": "120px",
+              "margin-desktop": "64px",
+              gutter: "24px",
+              "container-max": "1280px",
+              base: "8px",
+              "margin-mobile": "20px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "label-md": ["Montserrat"],
+              "headline-lg": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "body-md": ["Montserrat"],
+              "body-lg": ["Montserrat"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background min-h-screen flex flex-col">
+    <!-- TopAppBar -->
+    <header
+      class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-on-surface/10 docked full-width top-0 sticky z-50 shadow-deep-navy"
+    >
+      <nav
+        class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto transition-all duration-300 ease-in-out"
+      >
+        <div class="flex items-center gap-4">
+          <button
+            class="material-symbols-outlined text-primary p-2 hover:bg-surface-bright/10 rounded-full transition-colors"
+          >
+            menu
+          </button>
+          <span
+            class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary"
+            >APEX MOTO</span
+          >
+        </div>
+        <div class="hidden md:flex items-center gap-gutter">
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >MOTOCICLETAS</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >ACCESORIOS</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+            href="#"
+            >EXPERIENCIAS</a
+          >
+          <div class="h-6 w-px bg-outline-variant/30"></div>
+          <button
+            class="material-symbols-outlined text-primary p-2 hover:bg-surface-bright/10 rounded-full transition-colors"
+          >
+            shopping_cart
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main
+      class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop py-12"
+    >
+      <div class="w-full max-w-container-max">
+        <div class="flex flex-col gap-4 mb-12">
+          <h1
+            class="font-headline-lg text-headline-lg text-primary uppercase tracking-wider"
+          >
+            Finalizar Pago
+          </h1>
+          <p
+            class="font-body-md text-body-md text-on-surface-variant max-w-2xl"
+          >
+            Asegura tu próxima aventura. Completa los detalles a continuación
+            para confirmar la adquisición de tu nueva Apex Moto.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+          <!-- Payment Section -->
+          <div class="lg:col-span-8 flex flex-col gap-8">
+            <!-- Method Selection -->
+            <section class="glass-panel rounded-xl p-8 flex flex-col gap-6">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-tertiary"
+                  >payments</span
+                >
+                <h2 class="font-headline-md text-headline-md">
+                  Método de Pago
+                </h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button
+                  class="selection-active flex flex-col items-center justify-center p-6 rounded-xl border border-outline-variant/30 transition-all duration-300 hover:bg-surface-container-high group"
+                  id="method-card"
+                  onclick="selectMethod('card')"
+                >
+                  <span
+                    class="material-symbols-outlined text-4xl mb-2 text-primary"
+                    >credit_card</span
+                  >
+                  <span class="font-label-md text-label-md">Tarjeta</span>
+                </button>
+                <button
+                  class="flex flex-col items-center justify-center p-6 rounded-xl border border-outline-variant/30 transition-all duration-300 hover:bg-surface-container-high group"
+                  id="method-paypal"
+                  onclick="selectMethod('paypal')"
+                >
+                  <span
+                    class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant group-hover:text-primary"
+                    >account_balance_wallet</span
+                  >
+                  <span class="font-label-md text-label-md">PayPal</span>
+                </button>
+                <button
+                  class="flex flex-col items-center justify-center p-6 rounded-xl border border-outline-variant/30 transition-all duration-300 hover:bg-surface-container-high group"
+                  id="method-transfer"
+                  onclick="selectMethod('transfer')"
+                >
+                  <span
+                    class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant group-hover:text-primary"
+                    >account_balance</span
+                  >
+                  <span class="font-label-md text-label-md">Transferencia</span>
+                </button>
+              </div>
+            </section>
+            <!-- Card Details Form -->
+            <section
+              class="glass-panel rounded-xl p-8 flex flex-col gap-8"
+              id="card-form"
+            >
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-tertiary"
+                  >lock</span
+                >
+                <h2 class="font-headline-md text-headline-md">
+                  Detalles de la Tarjeta
+                </h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-2 md:col-span-2">
+                  <label
+                    class="font-label-md text-label-md text-on-surface-variant ml-1"
+                    >NOMBRE EN LA TARJETA</label
+                  >
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md input-glow transition-all"
+                    placeholder="EJ. JUAN PÉREZ"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col gap-2 md:col-span-2 relative">
+                  <label
+                    class="font-label-md text-label-md text-on-surface-variant ml-1"
+                    >NÚMERO DE TARJETA</label
+                  >
+                  <div class="relative">
+                    <input
+                      class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg pl-4 pr-12 py-3 font-body-md text-body-md input-glow transition-all"
+                      placeholder="0000 0000 0000 0000"
+                      type="text"
+                    />
+                    <span
+                      class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
+                      >credit_card</span
+                    >
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="font-label-md text-label-md text-on-surface-variant ml-1"
+                    >FECHA DE EXPIRACIÓN</label
+                  >
+                  <input
+                    class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md input-glow transition-all"
+                    placeholder="MM/AA"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="font-label-md text-label-md text-on-surface-variant ml-1"
+                    >CVC / CVV</label
+                  >
+                  <div class="relative">
+                    <input
+                      class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md input-glow transition-all"
+                      placeholder="***"
+                      type="password"
+                    />
+                    <span
+                      class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant cursor-help"
+                      title="3 o 4 dígitos al reverso"
+                      >help</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 bg-primary-container/20 rounded-lg border border-primary/20"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >verified_user</span
+                >
+                <p class="font-label-md text-label-md text-primary-fixed-dim">
+                  Tus datos están protegidos con cifrado de grado militar de 256
+                  bits.
+                </p>
+              </div>
+            </section>
+          </div>
+          <!-- Order Summary -->
+          <div class="lg:col-span-4 flex flex-col gap-gutter">
+            <div class="glass-panel rounded-xl p-8 sticky top-32">
+              <h2
+                class="font-headline-md text-headline-md mb-8 border-b border-outline-variant/30 pb-4"
+              >
+                Resumen
+              </h2>
+              <div class="flex flex-col gap-6 mb-8">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <p class="font-label-md text-label-md text-primary">
+                      APEX V-STREAK 1200
+                    </p>
+                    <p class="text-sm text-on-surface-variant">
+                      Edición Limitada Carbon
+                    </p>
+                  </div>
+                  <span class="font-body-md text-body-md">$24,500.00</span>
+                </div>
+                <div
+                  class="flex justify-between items-center text-on-surface-variant"
+                >
+                  <span class="font-body-md text-body-md"
+                    >Accesorios Tech-Pack</span
+                  >
+                  <span class="font-body-md text-body-md">$1,200.00</span>
+                </div>
+                <div
+                  class="flex justify-between items-center text-on-surface-variant"
+                >
+                  <span class="font-body-md text-body-md">Envío Premium</span>
+                  <span class="font-body-md text-body-md">$450.00</span>
+                </div>
+                <div
+                  class="flex justify-between items-center text-on-surface-variant border-t border-outline-variant/20 pt-4"
+                >
+                  <span class="font-body-md text-body-md">Impuestos (IVA)</span>
+                  <span class="font-body-md text-body-md">$4,112.00</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center mb-10">
+                <span class="font-headline-md text-headline-md">TOTAL</span>
+                <span
+                  class="font-headline-lg text-headline-lg text-primary tracking-tighter"
+                  >$30,262.00</span
+                >
+              </div>
+              <button
+                class="w-full brand-gradient brand-gradient-hover text-white font-headline-md text-headline-md py-5 rounded-xl transition-all duration-300 uppercase tracking-widest shadow-2xl flex items-center justify-center gap-3"
+              >
+                Confirmar Pago
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+              <p
+                class="text-center mt-6 font-label-md text-label-md text-on-surface-variant/60"
+              >
+                Al confirmar, aceptas nuestros Términos de Servicio y la
+                Política de Venta Exclusiva.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-dim dark:bg-surface-dim border-t border-outline-variant/30 mt-section-gap"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto"
+      >
+        <div class="md:col-span-1">
+          <span
+            class="font-display-lg-mobile text-display-lg-mobile text-primary"
+            >APEX MOTO</span
+          >
+          <p class="mt-4 font-body-md text-body-md text-on-surface-variant">
+            La vanguardia en ingeniería de motocicletas de alto rendimiento.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-secondary mb-6 uppercase">
+            Legal
+          </h4>
+          <ul class="flex flex-col gap-3">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+                href="#"
+                >Terms of Service</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-secondary mb-6 uppercase">
+            Servicios
+          </h4>
+          <ul class="flex flex-col gap-3">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+                href="#"
+                >Shipping</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+                href="#"
+                >Returns</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-md text-label-md text-secondary mb-6 uppercase">
+            Contacto
+          </h4>
+          <a
+            class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+            href="#"
+            >Dealer Locator</a
+          >
+        </div>
+      </div>
+      <div
+        class="px-margin-desktop py-8 border-t border-outline-variant/10 text-center"
+      >
+        <p class="font-body-md text-body-md text-on-surface-variant/40">
+          © 2024 APEX MOTO EXCLUSIVE. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container/90 dark:bg-surface-container/90 backdrop-blur-lg border-t border-white/10 z-50 rounded-t-xl flex justify-around items-center px-margin-mobile py-3 shadow-2xl shadow-black"
+    >
+      <button
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-transform active:scale-90"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <span class="font-label-md text-[10px] uppercase">Home</span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-transform active:scale-90"
+      >
+        <span class="material-symbols-outlined">grid_view</span>
+        <span class="font-label-md text-[10px] uppercase">Catalog</span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl p-2 transition-transform active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >shopping_bag</span
+        >
+        <span class="font-label-md text-[10px] uppercase">Cart</span>
+      </button>
+      <button
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-transform active:scale-90"
+      >
+        <span class="material-symbols-outlined">person</span>
+        <span class="font-label-md text-[10px] uppercase">Profile</span>
+      </button>
+    </nav>
+    <script>
+      function selectMethod(method) {
+        const methods = ["card", "paypal", "transfer"];
+        methods.forEach((m) => {
+          const el = document.getElementById("method-" + m);
+          const icon = el.querySelector(".material-symbols-outlined");
+
+          if (m === method) {
+            el.classList.add("selection-active");
+            icon.classList.remove("text-on-surface-variant");
+            icon.classList.add("text-primary");
+          } else {
+            el.classList.remove("selection-active");
+            icon.classList.add("text-on-surface-variant");
+            icon.classList.remove("text-primary");
+          }
+        });
+
+        // Toggle form visibility with a simple effect
+        const cardForm = document.getElementById("card-form");
+        if (method !== "card") {
+          cardForm.style.opacity = "0.4";
+          cardForm.style.pointerEvents = "none";
+        } else {
+          cardForm.style.opacity = "1";
+          cardForm.style.pointerEvents = "auto";
+        }
+      }
+
+      // Add some atmospheric micro-interactions
+      document.querySelectorAll(".glass-panel").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+      });
+    </script>
+  </body>
+</html>

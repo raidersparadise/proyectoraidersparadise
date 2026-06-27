@@ -1,0 +1,907 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Catalog | RaidersParadise</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --glass-bg: rgba(20, 24, 61, 0.4);
+        --glass-border: rgba(255, 255, 255, 0.1);
+      }
+      body {
+        background-color: #131316;
+        color: #e5e1e5;
+        font-family: "Montserrat", sans-serif;
+      }
+      .glass-panel {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #c0c3f2 0%, #ccbeff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .accent-gradient {
+        background: linear-gradient(135deg, #554395 0%, #292d53 100%);
+      }
+      .primary-gradient {
+        background: linear-gradient(90deg, #c0c3f2 0%, #ccbeff 100%);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #131316;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #353437;
+        border-radius: 4px;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#5c421b",
+              "surface-dim": "#131316",
+              "error-container": "#93000a",
+              "on-primary-fixed-variant": "#40446b",
+              "primary-fixed": "#dfe0ff",
+              "secondary-fixed": "#e7deff",
+              outline: "#919099",
+              "surface-tint": "#c0c3f2",
+              "on-secondary-fixed-variant": "#4b398a",
+              "surface-container": "#201f22",
+              "primary-container": "#1e2247",
+              "inverse-surface": "#e5e1e5",
+              "surface-container-highest": "#353437",
+              "on-secondary": "#342072",
+              "on-tertiary-fixed": "#291800",
+              "inverse-on-surface": "#303033",
+              "on-tertiary-container": "#a8875a",
+              "secondary-container": "#4d3b8d",
+              "tertiary-fixed": "#ffddb3",
+              primary: "#c0c3f2",
+              "on-secondary-fixed": "#1f025e",
+              "secondary-fixed-dim": "#ccbeff",
+              error: "#ffb4ab",
+              surface: "#131316",
+              "on-primary-fixed": "#14183d",
+              "tertiary-fixed-dim": "#e6c08f",
+              "on-surface": "#e5e1e5",
+              "on-primary-container": "#8689b5",
+              "inverse-primary": "#575b84",
+              "on-tertiary": "#432c07",
+              background: "#131316",
+              secondary: "#ccbeff",
+              "surface-container-high": "#2a2a2d",
+              "surface-bright": "#39393c",
+              "tertiary-container": "#362100",
+              "on-surface-variant": "#c7c5cf",
+              "surface-container-low": "#1b1b1e",
+              "on-error-container": "#ffdad6",
+              "on-background": "#e5e1e5",
+              tertiary: "#e6c08f",
+              "on-error": "#690005",
+              "primary-fixed-dim": "#c0c3f2",
+              "surface-variant": "#353437",
+              "on-secondary-container": "#beadff",
+              "on-primary": "#292d53",
+              "outline-variant": "#46464e",
+              "surface-container-lowest": "#0e0e11",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "section-gap": "120px",
+              "margin-desktop": "64px",
+              gutter: "24px",
+              base: "8px",
+              "margin-mobile": "20px",
+            },
+            fontFamily: {
+              "headline-lg": ["Montserrat"],
+              "label-md": ["Montserrat"],
+              "body-md": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "headline-md": ["Montserrat"],
+              "body-lg": ["Montserrat"],
+            },
+            fontSize: {
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- Top Navigation -->
+    <header
+      class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl text-primary dark:text-primary docked full-width top-0 sticky z-50 border-b border-on-surface/10 shadow-deep-navy transition-all duration-300 ease-in-out"
+    >
+      <div
+        class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined cursor-pointer text-primary"
+            >menu</span
+          >
+          <h1
+            class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary"
+          >
+            Raiders MOTO
+          </h1>
+        </div>
+        <div class="hidden md:flex gap-gutter items-center">
+          <a
+            class="text-primary border-b-2 border-primary font-label-md text-label-md py-1"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md py-1"
+            href="#"
+            >Catalog</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md py-1"
+            href="#"
+            >Community</a
+          >
+        </div>
+        <div class="flex items-center gap-6">
+          <span
+            class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors"
+            >shopping_cart</span
+          >
+          <div
+            class="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A professional portrait of a motorcycle enthusiast with a sleek carbon fiber helmet nearby, high-end studio lighting with blue and purple rim lights, set against a dark architectural background. Professional photography, high contrast, elite aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjLkkEPlmt5fKe17LEekIAAi7j4b8u3QMNtvRxN09yTtA1himLG8ke9fF0I9gY817MecFcHNr0zX-kKDe3drT-IpQfLDv-25rMeyr9YkUR1_fEwwaodocNpQScCfGzzdvVGPMkzNXDytFwfk5yZzTUdVtERpZicTlRE40QnQOVghieUzOO8-t5xs9n2YTjV7xOvz6_wLtWf1t77sH0Igtnb8jZvVpMOKNLq_89dUvKJS0Qnvhf386oPqvFl-gj4RM62cWbDYG4vg5P"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10"
+    >
+      <!-- Search & Filter Header -->
+      <section class="mb-section-gap/2">
+        <div
+          class="flex flex-col md:flex-row gap-gutter items-center justify-between mb-8"
+        >
+          <div class="relative w-full md:max-w-2xl group">
+            <span
+              class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors"
+              >search</span
+            >
+            <input
+              class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl py-4 pl-14 pr-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-body-md text-body-md"
+              placeholder="Search elite gear, exhausts, or components..."
+              type="text"
+            />
+          </div>
+          <button
+            class="flex items-center gap-2 px-6 py-4 rounded-xl glass-panel hover:bg-surface-container-high transition-all"
+            onclick="toggleFilters()"
+          >
+            <span class="material-symbols-outlined">tune</span>
+            <span class="font-label-md text-label-md">Filters</span>
+          </button>
+        </div>
+        <!-- Filter Bar (Inline/Expandable) -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 gap-gutter glass-panel p-6 rounded-2xl mb-12 opacity-100 transition-all duration-500 overflow-hidden"
+          id="filter-panel"
+        >
+          <div class="flex flex-col gap-2">
+            <label
+              class="font-label-md text-label-md text-primary opacity-80 uppercase tracking-widest"
+              >Brand</label
+            >
+            <select
+              class="bg-surface-container-low border border-outline-variant/20 rounded-lg p-2 text-on-surface font-body-md"
+            >
+              <option>All Brands</option>
+              <option>Akrapovič</option>
+              <option>Brembo</option>
+              <option>Shoei</option>
+              <option>Dainese</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              class="font-label-md text-label-md text-primary opacity-80 uppercase tracking-widest"
+              >Price Range</label
+            >
+            <select
+              class="bg-surface-container-low border border-outline-variant/20 rounded-lg p-2 text-on-surface font-body-md"
+            >
+              <option>Any Price</option>
+              <option>$0 - $500</option>
+              <option>$500 - $1,500</option>
+              <option>$1,500+</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              class="font-label-md text-label-md text-primary opacity-80 uppercase tracking-widest"
+              >Category</label
+            >
+            <select
+              class="bg-surface-container-low border border-outline-variant/20 rounded-lg p-2 text-on-surface font-body-md"
+            >
+              <option>All Categories</option>
+              <option>Exhaust Systems</option>
+              <option>Helmets</option>
+              <option>Braking</option>
+              <option>Apparel</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              class="font-label-md text-label-md text-primary opacity-80 uppercase tracking-widest"
+              >Availability</label
+            >
+            <div class="flex items-center gap-4 py-2">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input
+                  class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest"
+                  type="checkbox"
+                />
+                <span class="font-body-md text-on-surface-variant"
+                  >In Stock</span
+                >
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input
+                  class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary bg-surface-container-lowest"
+                  type="checkbox"
+                />
+                <span class="font-body-md text-on-surface-variant"
+                  >Limited</span
+                >
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <!-- Product Card 1 -->
+        <div
+          class="glass-panel rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col"
+        >
+          <div class="relative h-72 overflow-hidden">
+            <img
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              data-alt="A high-end Akrapovic titanium exhaust system for a superbike, shown in a dark studio setting with sharp directional lighting highlighting the metallic texture and carbon fiber end-cap. The mood is mechanical, elite, and powerful, with deep blue and soft purple reflections on the metal."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxIMbnti8uTH_y6upbWX6A4K_nu3xDiSYl6nz2doygTVfDTZkUub0DW9_iiUwJDWXWPkc81GNXZcOEax7icF47hG-BPU2N03M1F3sVLPErgthIqiTZH9Jw2vwawH4xuHQofnJ64aLFpkCvlvd_DvzD7JMJEzWPnSilsOI_F-lf7Gdnlhec_JgW-kFm14kJBYYO5VplytCly7eyoOvLKCyIz5ngmGlQdcWHJ6riMvAW2DYO0zWjC9XWaOgILg6QIrgubbAX4QRTJyX-"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full backdrop-blur-md"
+                >In Stock</span
+              >
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-xl flex items-center gap-1"
+            >
+              <span
+                class="material-symbols-outlined text-tertiary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-md text-label-md text-on-surface"
+                >5.0</span
+              >
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span
+                class="font-label-md text-label-md text-primary uppercase tracking-widest"
+                >Akrapovič</span
+              >
+              <span class="font-headline-md text-headline-md text-secondary"
+                >$2,499.00</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors"
+            >
+              Evolution Line Titanium Exhaust
+            </h3>
+            <p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+              Precision-engineered titanium header system with carbon fiber
+              mufflers. Weight reduction of 4.5kg.
+            </p>
+            <div class="flex gap-3">
+              <button
+                class="flex-grow py-3 px-4 glass-panel hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-all border border-outline-variant/30"
+              >
+                Ver detalles
+              </button>
+              <button
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div
+          class="glass-panel rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col"
+        >
+          <div class="relative h-72 overflow-hidden">
+            <img
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              data-alt="A premium matte black Shoei motorcycle helmet with a dark smoke visor, placed on a dark reflective surface. High-contrast studio lighting creates a dramatic silhouette, emphasizing the aerodynamic shape and high-end finish. Dark navy and purple ambient glow. Professional product cinematography."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoXwToPiay0JX3Egd08JfyrZ3PdUrQntsfqKMnVDUw81Qr6Qkgwl6ajQ12MFiGT22ksQJuLGZSPNaEWjdkHLpcpZXXrUS1DyNyY_8WlJiMYdQa1NBeNuA9i83w8Ix3m65K1PdkqNAWx98sNnCk8sSkaO4OwVtKJoT2d06cDwVIDfp9ptA2DY6bpoMb9_R3gSbaFBReKl1BaMsXfQCjGUZ0dfl35So0VrjLTvZ-HfGjnPdmubmf9Gf3Zw-XZQggpXyRFcV8TEwu5yTv"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-error-container text-on-error-container font-label-md text-label-md px-3 py-1 rounded-full backdrop-blur-md"
+                >Limited</span
+              >
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-xl flex items-center gap-1"
+            >
+              <span
+                class="material-symbols-outlined text-tertiary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-md text-label-md text-on-surface"
+                >4.9</span
+              >
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span
+                class="font-label-md text-label-md text-primary uppercase tracking-widest"
+                >Shoei</span
+              >
+              <span class="font-headline-md text-headline-md text-secondary"
+                >$849.00</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors"
+            >
+              X-SPR Pro Aero Matte
+            </h3>
+            <p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+              MotoGP-tested aerodynamics and superior safety integration for
+              track enthusiasts.
+            </p>
+            <div class="flex gap-3">
+              <button
+                class="flex-grow py-3 px-4 glass-panel hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-all border border-outline-variant/30"
+              >
+                Ver detalles
+              </button>
+              <button
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 3 -->
+        <div
+          class="glass-panel rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col"
+        >
+          <div class="relative h-72 overflow-hidden">
+            <img
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              data-alt="Brembo GP4-RS monoblock brake calipers in a bright nickel finish, showcased in a clinical dark environment with soft purple and blue glows reflecting on the metallic surfaces. Technical and high-performance aesthetic, macro photography detail. Engineering excellence mood."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDErLSb7bvkIKMyd0B5eniMo0UDZRO22J47GFuv-BdTo7ku6Deo7hfcTh7Uj6S3ZJdq6z4DYRZkWdPYvVQCG9L9c4tRclRfhCgKKDhp5r8aV-ZzfFrOYT4LOosU-nKdyPJAIjIgHbb0jSPbi7Labp9zzEbz0sOeOK3Fj-et9KGhPBXV0OI8_BD6UYhZwc0rsYYt6W-u5FA3e_whigwYpRqtL3pPi4a5O1-pAw4SoUk90emE_M2PgvS5LlMoYaOURRuwbl2nUb1Ux0hO"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full backdrop-blur-md"
+                >In Stock</span
+              >
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-xl flex items-center gap-1"
+            >
+              <span
+                class="material-symbols-outlined text-tertiary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-md text-label-md text-on-surface"
+                >5.0</span
+              >
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span
+                class="font-label-md text-label-md text-primary uppercase tracking-widest"
+                >Brembo</span
+              >
+              <span class="font-headline-md text-headline-md text-secondary"
+                >$1,120.00</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors"
+            >
+              GP4-RS Monoblock Calipers
+            </h3>
+            <p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+              Lightweight racing technology for ultimate stopping power and
+              thermal stability.
+            </p>
+            <div class="flex gap-3">
+              <button
+                class="flex-grow py-3 px-4 glass-panel hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-all border border-outline-variant/30"
+              >
+                Ver detalles
+              </button>
+              <button
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 4 -->
+        <div
+          class="glass-panel rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col"
+        >
+          <div class="relative h-72 overflow-hidden">
+            <img
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              data-alt="High-performance Ohlins front fork suspension set, characteristic gold tubes with technical details. Studio dark background with high-key lighting accents. Premium motorcycle components aesthetic with cool blue and vibrant gold color palette. Professional catalog photography."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJsJevNaK-u9Bu1255Wp6YT4UU_4cT4s_BEDQyiNFO-dacNJ61P4oUUGP-em9yxfxLBiHMvFg4Riave0viABQNmPqXgNZX7OxGDDZ0Lt1zD0t6AEIv-oqCLcWbltHSe7wIk2MF8XSsQwUEKghQbv6DHs3TqgSC_cOb6C_SoOz52KDyT9sUAPqMGYOwcES1ZTck-zNittE592AMSWUYT40HhYE8CdSObHavy2m343k1c8SXDXLnLk87oE3C-OB1wxldpPY6a6azP8H5"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full backdrop-blur-md"
+                >In Stock</span
+              >
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-xl flex items-center gap-1"
+            >
+              <span
+                class="material-symbols-outlined text-tertiary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-md text-label-md text-on-surface"
+                >4.8</span
+              >
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span
+                class="font-label-md text-label-md text-primary uppercase tracking-widest"
+                >Öhlins</span
+              >
+              <span class="font-headline-md text-headline-md text-secondary"
+                >$3,850.00</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors"
+            >
+              FGR 250 Front Fork Kit
+            </h3>
+            <p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+              Professional-grade suspension providing unparalleled feedback and
+              cornering precision.
+            </p>
+            <div class="flex gap-3">
+              <button
+                class="flex-grow py-3 px-4 glass-panel hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-all border border-outline-variant/30"
+              >
+                Ver detalles
+              </button>
+              <button
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 5 -->
+        <div
+          class="glass-panel rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col"
+        >
+          <div class="relative h-72 overflow-hidden">
+            <img
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              data-alt="Elite Dainese Misano 3 leather racing suit with integrated airbag system, displayed on a minimalist stand in a high-tech dark workshop. Atmospheric lighting with neon purple accents highlighting the textures of premium leather and carbon fiber armor. Sleek, fast, and protective mood."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIdA0ujwjLs---QLHeE-HKQz0EKNBW-WAOslb_z5YaEG1omSx09cOr4l8YcSEGdENFzWYHyk44haeK2tt_F9bwT8434VAN_HOB6egH5euMFl2lqWDsgcNSOEPxcJf5BNvuoMI_dqODJOGNjhyVewfkDKRllCr2nGAlzqgo5M8aWxYceRPj3U1WB2e6CswaU303Eo7cHyKdqmJQ3ccFxPUkXgfvhixLz2WMUEuimKQbb9wpVUKIrPkyHgiXbmjfYAKOiLagJ72MZt4l"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-error-container text-on-error-container font-label-md text-label-md px-3 py-1 rounded-full backdrop-blur-md"
+                >Limited</span
+              >
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-xl flex items-center gap-1"
+            >
+              <span
+                class="material-symbols-outlined text-tertiary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-md text-label-md text-on-surface"
+                >5.0</span
+              >
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span
+                class="font-label-md text-label-md text-primary uppercase tracking-widest"
+                >Dainese</span
+              >
+              <span class="font-headline-md text-headline-md text-secondary"
+                >$2,999.00</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors"
+            >
+              Misano 3 D-Air Custom
+            </h3>
+            <p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+              Intelligent protection with integrated airbag system and premium
+              Kangaroo leather.
+            </p>
+            <div class="flex gap-3">
+              <button
+                class="flex-grow py-3 px-4 glass-panel hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-all border border-outline-variant/30"
+              >
+                Ver detalles
+              </button>
+              <button
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 6 -->
+        <div
+          class="glass-panel rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col"
+        >
+          <div class="relative h-72 overflow-hidden">
+            <img
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              data-alt="Lightweight carbon fiber motorcycle wheel by Thyssenkrupp Carbon Components, gleaming under soft spotlighting in a dark gallery. The woven texture of the carbon is clearly visible. High-contrast, elite hardware aesthetic with deep blacks and cool gray highlights. Professional cinematic lighting."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTuORvyxu4HKJXF8ooZU8XbgvyQe3egjNMchy9ap-xcUOAey3Wi7vA2yJAlnHaold5QRbSyvmorBaLt2QcD-QmUDP7ebPof0l47FGfsm-0lTTfzYqxH2xYdZerWCTGDsB8GGXXGgBDFalEgO3T8L_T3WKDcFHY-fIbiztW0y37l9M_YJc-dku_Re-7b3wM3JJptTKhwKhiEs79yeE3MHTAibnFXSwg0a2bnqXCaLmGwq-Sgulq7VIbOlM2Z8UekAeFLBcKq084Llx5"
+            />
+            <div class="absolute top-4 left-4">
+              <span
+                class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full backdrop-blur-md"
+                >In Stock</span
+              >
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-xl flex items-center gap-1"
+            >
+              <span
+                class="material-symbols-outlined text-tertiary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-md text-label-md text-on-surface"
+                >4.9</span
+              >
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span
+                class="font-label-md text-label-md text-primary uppercase tracking-widest"
+                >TK Carbon</span
+              >
+              <span class="font-headline-md text-headline-md text-secondary"
+                >$3,200.00</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors"
+            >
+              Ultralight Carbon Wheelset
+            </h3>
+            <p class="font-body-md text-on-surface-variant mb-6 flex-grow">
+              TÜV-certified braided carbon fiber wheels for ultimate agility and
+              rotational mass reduction.
+            </p>
+            <div class="flex gap-3">
+              <button
+                class="flex-grow py-3 px-4 glass-panel hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-xl transition-all border border-outline-variant/30"
+              >
+                Ver detalles
+              </button>
+              <button
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all"
+              >
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pagination / Load More -->
+      <div class="mt-20 flex justify-center">
+        <button
+          class="px-10 py-4 glass-panel rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-all flex items-center gap-3 group border border-primary/20"
+        >
+          Load more elite performance gear
+          <span
+            class="material-symbols-outlined group-hover:translate-y-1 transition-transform"
+            >expand_more</span
+          >
+        </button>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="relative w-full mt-section-gap bg-surface-dim dark:bg-surface-dim border-t border-outline-variant/30"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <h2
+            class="font-display-lg-mobile text-display-lg-mobile text-primary mb-6"
+          >
+            RaidersEX MOTO
+          </h2>
+          <p class="font-body-md text-on-surface-variant mb-8">
+            Elevating the spirit of performance through engineering excellence.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="font-headline-md text-headline-md text-on-surface">
+            Categories
+          </h4>
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Exhausts</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Helmets</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Tuning</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Riding Gear</a
+          >
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="font-headline-md text-headline-md text-on-surface">
+            Support
+          </h4>
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Shipping</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Returns</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Dealer Locator</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Warranty</a
+          >
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="font-headline-md text-headline-md text-on-surface">
+            Legal
+          </h4>
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-body-md text-on-surface-variant hover:text-white transition-colors"
+            href="#"
+            >Terms of Service</a
+          >
+          <div class="flex gap-4 mt-4">
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-primary"
+              >language</span
+            >
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-primary"
+              >share</span
+            >
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-primary"
+              >info</span
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="px-margin-desktop py-8 border-t border-outline-variant/10 text-center"
+      >
+        <p
+          class="font-label-md text-label-md text-on-surface-variant opacity-50"
+        >
+          © 2024 Raiders MOTO EXCLUSIVE. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+    <!-- Mobile Bottom Nav -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-3 bg-surface-container/90 dark:bg-surface-container/90 backdrop-blur-lg z-50 rounded-t-xl border-t border-white/10 shadow-2xl shadow-black"
+    >
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2"
+        href="#"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <span class="font-label-md text-[10px]">Home</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl p-2"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >grid_view</span
+        >
+        <span class="font-label-md text-[10px]">Catalog</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2"
+        href="#"
+      >
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="font-label-md text-[10px]">Cart</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2"
+        href="#"
+      >
+        <span class="material-symbols-outlined">person</span>
+        <span class="font-label-md text-[10px]">Profile</span>
+      </a>
+    </nav>
+    <script>
+      function toggleFilters() {
+        const panel = document.getElementById("filter-panel");
+        if (panel.classList.contains("hidden")) {
+          panel.classList.remove("hidden");
+          panel.classList.add("grid");
+          setTimeout(() => (panel.style.opacity = "1"), 10);
+        } else {
+          panel.style.opacity = "0";
+          setTimeout(() => {
+            panel.classList.add("hidden");
+            panel.classList.remove("grid");
+          }, 500);
+        }
+      }
+
+      // Initialize state
+      window.onload = () => {
+        // Start with filters visible on desktop
+        if (window.innerWidth < 768) {
+          document.getElementById("filter-panel").classList.add("hidden");
+          document.getElementById("filter-panel").classList.remove("grid");
+        }
+      };
+    </script>
+  </body>
+</html>

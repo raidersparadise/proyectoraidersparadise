@@ -1,0 +1,796 @@
+<!doctype html>
+
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title> RaidersPradise | Accesorios de Lujo</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#5c421b",
+              "surface-dim": "#131316",
+              "error-container": "#93000a",
+              "on-primary-fixed-variant": "#40446b",
+              "primary-fixed": "#dfe0ff",
+              "secondary-fixed": "#e7deff",
+              outline: "#919099",
+              "surface-tint": "#c0c3f2",
+              "on-secondary-fixed-variant": "#4b398a",
+              "surface-container": "#201f22",
+              "primary-container": "#1e2247",
+              "inverse-surface": "#e5e1e5",
+              "surface-container-highest": "#353437",
+              "on-secondary": "#342072",
+              "on-tertiary-fixed": "#291800",
+              "inverse-on-surface": "#303033",
+              "on-tertiary-container": "#a8875a",
+              "secondary-container": "#4d3b8d",
+              "tertiary-fixed": "#ffddb3",
+              primary: "#c0c3f2",
+              "on-secondary-fixed": "#1f025e",
+              "secondary-fixed-dim": "#ccbeff",
+              error: "#ffb4ab",
+              surface: "#131316",
+              "on-primary-fixed": "#14183d",
+              "tertiary-fixed-dim": "#e6c08f",
+              "on-surface": "#e5e1e5",
+              "on-primary-container": "#8689b5",
+              "inverse-primary": "#575b84",
+              "on-tertiary": "#432c07",
+              background: "#131316",
+              secondary: "#ccbeff",
+              "surface-container-high": "#2a2a2d",
+              "surface-bright": "#39393c",
+              "tertiary-container": "#362100",
+              "on-surface-variant": "#c7c5cf",
+              "surface-container-low": "#1b1b1e",
+              "on-error-container": "#ffdad6",
+              "on-background": "#e5e1e5",
+              tertiary: "#e6c08f",
+              "on-error": "#690005",
+              "primary-fixed-dim": "#c0c3f2",
+              "surface-variant": "#353437",
+              "on-secondary-container": "#beadff",
+              "on-primary": "#292d53",
+              "outline-variant": "#46464e",
+              "surface-container-lowest": "#0e0e11",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1280px",
+              "section-gap": "120px",
+              "margin-desktop": "64px",
+              gutter: "24px",
+              base: "8px",
+              "margin-mobile": "20px",
+            },
+            fontFamily: {
+              "headline-lg": ["Montserrat"],
+              "label-md": ["Montserrat"],
+              "body-md": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "headline-md": ["Montserrat"],
+              "body-lg": ["Montserrat"],
+            },
+            fontSize: {
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+            boxShadow: {
+              "deep-navy": "0 20px 50px -12px rgba(30, 34, 71, 0.5)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #131316;
+        color: #e5e1e5;
+        overflow-x: hidden;
+      }
+
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .primary-gradient-btn {
+        background: linear-gradient(135deg, #ff6b00 0%, #e63946 100%);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .primary-gradient-btn:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(230, 57, 70, 0.4);
+      }
+
+      .scroll-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scroll-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      @keyframes subtle-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-float {
+        animation: subtle-float 6s ease-in-out infinite;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-body-md selection:bg-secondary/30">
+    <!-- TopAppBar -->
+    <header
+      class="bg-surface/80 backdrop-blur-xl border-b border-on-surface/10 docked full-width top-0 sticky z-50 transition-all duration-300 ease-in-out shadow-deep-navy"
+    >
+      <nav
+        class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary cursor-pointer"
+            >menu</span
+          >
+          <h1
+            class="font-display-lg text-display-lg tracking-tighter text-primary"
+          >
+            RaidersParadise
+          </h1>
+        </div>
+        <div class="hidden md:flex gap-8">
+          <a
+            class="font-label-md text-label-md text-primary border-b-2 border-primary py-1"
+            href="#"
+            >Home</a
+          >
+          <a
+
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1"
+            href="catalogo.html"
+          >
+            catalogo</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1"
+            href="miperfil.html"
+            >Profile</a
+          >
+          
+        </div>
+        <a href="carrito.html">
+            <span
+              class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors"
+              title="Carrito"
+            >
+              shopping_cart
+            </span>
+          </a>
+          <a href="buscar.html">
+            <span
+              class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors"
+              title="Buscar"
+            >
+              search
+            </span>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section class="relative h-[795px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10"
+          ></div>
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A cinematic, high-resolution shot of a sleek red Ducati Panigale V4 motorcycle parked in a dark, atmospheric industrial garage. The lighting is dramatic, highlighting the carbon fiber textures and polished chrome components of the bike. Soft blue and deep navy ambient light creates a high-contrast, premium aesthetic that emphasizes the machine's aggressive and elite engineering design."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd-9g4SEuCfx9Rpm1xOsgn_G1leNZBoQUWkhWKGRxCje1EtcwcgW_NupkvbbWt6sH80-61TayAxamUhq5yjra8z8Brn3DUhDMSQtaca0vKMlD9vUA-vm_7JK2JIj0Ym9jCb2gytrQ90e691msz9WKoUgS_xKTsqTkXJ701KU5kMbLBM7rPNTqmoqeklyUAEeMSYcUBw65bmYGXJFBhTBOnC4M_JEV7uEWodyeYOJ3-yISvhEoVxmX-sp1GBCgsvt_U5CL9YrpKl8EV"
+          />
+        </div>
+        <div
+          class="relative z-20 px-margin-desktop max-w-container-max mx-auto w-full"
+        >
+          <div class="max-w-2xl space-y-8">
+            <span
+              class="inline-block px-4 py-1 glass-panel rounded-full text-secondary font-label-md text-label-md uppercase tracking-widest"
+              >Performance Engineering</span
+            >
+            <h2
+              class="font-display-lg text-display-lg text-white leading-tight"
+            >
+              Accesorios Premium para Motociclistas que Exigen lo Mejor
+            </h2>
+            <p
+              class="text-on-surface-variant font-body-lg text-body-lg max-w-lg"
+            >
+              Eleva tu experiencia de conducción con componentes de fibra de
+              carbono, sistemas de escape de titanio y equipamiento de seguridad
+              de élite.
+            </p>
+            <div class="flex gap-4">
+              <button
+                class="primary-gradient-btn px-10 py-4 rounded-lg font-label-md text-label-md text-white uppercase tracking-wider"
+              >
+                Explorar Catálogo
+              </button>
+              <button
+                class="glass-panel px-10 py-4 rounded-lg font-label-md text-label-md text-white border border-white/20 hover:bg-white/10 transition-all uppercase tracking-wider"
+              >
+                Personalizar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Brands Banner -->
+      <section class="py-12 glass-panel border-x-0">
+        <div
+          class="max-w-container-max mx-auto px-margin-desktop flex flex-wrap justify-center md:justify-between items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+        >
+          <span
+            class="font-display-lg text-[32px] font-extrabold tracking-tighter text-on-surface"
+            >DUCATI</span
+          >
+          <span
+            class="font-display-lg text-[32px] font-extrabold tracking-tighter text-on-surface"
+            >BMW MOTORRAD</span
+          >
+          <span
+            class="font-display-lg text-[32px] font-extrabold tracking-tighter text-on-surface"
+            >YAMAHA</span
+          >
+          <span
+            class="font-display-lg text-[32px] font-extrabold tracking-tighter text-on-surface"
+            >AKRAPOVIČ</span
+          >
+        </div>
+      </section>
+      <!-- Categories Bento Grid -->
+      <section
+        class="py-section-gap px-margin-desktop max-w-container-max mx-auto"
+      >
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
+        >
+          <div>
+            <h3 class="font-headline-lg text-headline-lg text-primary mb-2">
+              Categorías Exclusivas
+            </h3>
+            <p class="text-on-surface-variant">
+              Selección curada de los mejores componentes del mercado.
+            </p>
+          </div>
+          <a
+            class="text-secondary font-label-md text-label-md flex items-center gap-2 hover:gap-4 transition-all"
+            href="#"
+            >Ver Todo
+            <span class="material-symbols-outlined">arrow_forward</span></a
+          >
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter h-[800px] md:h-[600px]"
+        >
+          <div
+            class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group cursor-pointer"
+          >
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="Close-up of a high-end carbon fiber motorcycle helmet with a gold-tinted visor. The helmet is placed on a matte black surface with soft overhead studio lighting, emphasizing the intricate weave of the carbon fiber and its glossy finish. The background is a dark, minimalist showroom that screams luxury and speed."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf-sC5hOqb0ZyUGcDjyNkVqQ6VVuBJ6dFUD9iq7FUnqftNR9DjWrJEkd-TtfPCr6fJWrNPmMgdrHTtrWbwe-Z6bvK15fVmGUJ1IdZleA1zCCYUi6BDyXkGjdWSHHkqACge9eOEQnZUHtuBvgzTxhve12Euv00QaiIv3Sg5C6xN44abrcMwisdAzotWYHArJ1WDdGBcDzm3uiBFLAlb3VyaMG49qbJO2PaSx7SaaSTa9czWOVdCl8ZnTuXV8QL4FsDhC93oPnKhwVQ_"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end"
+            >
+              <h4 class="font-headline-md text-headline-md text-white">
+                Cascos de Competición
+              </h4>
+              <p class="text-white/70">Máxima seguridad en fibra de carbono.</p>
+            </div>
+          </div>
+          <div
+            class="md:col-span-2 md:row-span-1 relative rounded-xl overflow-hidden group cursor-pointer"
+          >
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="Detailed view of a titanium motorcycle exhaust system with beautiful blue heat-tinting at the welds. The metal has a brushed texture and is reflecting subtle purple and amber lights from a high-tech workshop environment. The image focuses on the craftsmanship and high-performance engineering of the part."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIcW73M-vN81HjA0lJcCme2YcJ0BKwlD29iD2m-IvfQ-6WAuCxBp8UdWOuDm0ilNO5utVaQ1axa8DcV2zFlVaRWnAuvnZulndkWwxnmx5RMAg6ZNnBTy-tKnHp1GxOdcPVzV9GXjPRK6VKUygryxOvyHcLPXZxv4dkW5natpOaBAa1VYJwESjvKJpIYhr42Rq41LytmB0qKcC9ML8ocDIIDkYM8xAxcpaPwYUe8W4xA03c18m3hTYXJvD-MsI1fAyjhw7J9YAZ7nnK"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end"
+            >
+              <h4 class="font-headline-md text-headline-md text-white">
+                Sistemas de Escape
+              </h4>
+              <p class="text-white/70">Sonido y potencia Akrapovič.</p>
+            </div>
+          </div>
+          <div
+            class="md:col-span-1 md:row-span-1 relative rounded-xl overflow-hidden group cursor-pointer"
+          >
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="A pair of premium leather motorcycle racing gloves featuring carbon fiber knuckle guards. The gloves are meticulously stitched and look rugged yet luxurious, presented in a low-key lighting setup that highlights the quality of the leather and the technical safety features."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjtg2rkZhrvtn4fq7LeQu_P6Xzs3yNJ7blatcI2Ta44QKySWPYFkOoitAK9J2NStygBYgV-NHpYt80lwDvqQtzfCSgir2T3QP-qlW7SP_KqTCbQwLLk2nm6kDT_B_VFnO2s_I9MyL_OfH_xuY_Atzizx29PFIKgFjAN1z3pkV8K-d_pp6Kc94X7AHm2hWVczScf9mrzOTSgBiG1QxpjVvrf4Fu4wXYB_Kh_YQTa_TB0pToNcU_MhA5djxgaN0lDVs9eYYld_hVzxu"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 flex flex-col justify-end"
+            >
+              <h4
+                class="font-headline-md text-headline-md text-white text-[18px]"
+              >
+                Equipamiento
+              </h4>
+            </div>
+          </div>
+          <div
+            class="md:col-span-1 md:row-span-1 relative rounded-xl overflow-hidden group cursor-pointer"
+          >
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="Macro photography of motorcycle performance upgrades including a golden Ohlins suspension shock absorber and CNC-machined aluminum footpegs. The lighting is crisp and bright, focusing on the precision of the mechanical parts and the vibrant gold and silver metallic colors."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILMDML0VRSLqpAdbJr3YK7AV5oQe7-XZfiksP7Te6_9HH626B6bocKivptI8nX2yRIQ4cCn2PEspPpuj1-MRqHI15lYJdhH1DfgOzStc04Oh3PZfCctXtVDG1kbPaSDNfiiUPx1vHTCqva6yuGsl-n07aEf2Ugx8U22OND1ZNLcj51Ip2xo_bhjQ5xhYtdsMtBkT7mwkFRKK61AJayocDwtvn_aZbvb3Fhu5lEEYaFU6T9JSe2Ug_5Llp7H4tc9jz0zN2fLhejeqX"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 flex flex-col justify-end"
+            >
+              <h4
+                class="font-headline-md text-headline-md text-white text-[18px]"
+              >
+                Rendimiento
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Featured Products Horizontal Scroll -->
+      <section class="bg-surface-container-low py-section-gap overflow-hidden">
+        <div class="max-w-container-max mx-auto px-margin-desktop mb-12">
+          <h3 class="font-headline-lg text-headline-lg text-white">
+            Productos Destacados
+          </h3>
+        </div>
+        <div
+          class="flex gap-gutter overflow-x-auto scroll-hide px-margin-desktop pb-8 snap-x"
+        >
+          <!-- Product Card 1 -->
+          <div
+            class="min-w-[320px] glass-panel p-6 rounded-xl snap-center hover:border-primary/50 transition-all cursor-pointer group"
+          >
+            <div
+              class="h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-high relative"
+            >
+              <img
+                class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                data-alt="A studio shot of a high-performance Akrapovic Slip-On Line Titanium exhaust for a sportbike. The exhaust is centered against a dark grey background, with precise lighting that makes the titanium sheen and carbon fiber end cap stand out. Professional commercial photography."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6CsBkqOIZ5iGlOZRo3Y6nJQ7aPqsNj8aCw0k8Z_M876c3kq98pxgL2Fncm6IHFhsHPPXRWC8O2CEekMCg2yXu6Xvf-P6xdjzPWovGWcZnmveZyMqYtgaV7BeQSO8hDr3E6tWDKNL1yITgePkOEo1818z2vnLqFjsM68DT0vb4BKjHoD8K8fAuh9wpMkxbAJpMFrxDhBvMUVgYxlPQ0dL5fRI1blGxplqOcsLmsyzwCyUtIguXAU6hKUFDbf92GC93gOzq9PugJXMi"
+              />
+              <span
+                class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-label-md font-label-md"
+                >NUEVO</span
+              >
+            </div>
+            <h5 class="font-headline-md text-[18px] text-white mb-2">
+              Akrapovič Slip-On Titanium
+            </h5>
+            <div class="flex justify-between items-center">
+              <p class="text-secondary font-bold text-lg">$1,450.00</p>
+              <button
+                class="p-2 rounded-full hover:bg-secondary/20 text-secondary transition-colors"
+              >
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div
+            class="min-w-[320px] glass-panel p-6 rounded-xl snap-center hover:border-primary/50 transition-all cursor-pointer group"
+          >
+            <div
+              class="h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-high relative"
+            >
+            <a href="detalleproducto.html">
+              <img
+                class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                data-alt="An AGV Pista GP RR carbon fiber helmet with a vivid iridescent visor. The helmet is showcased in a dramatic side-profile view under cool white studio lights, highlighting the aerodynamic shape and the visible weave of the high-grade carbon fiber shell."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl6Q5FhR1lPy91PleoB2pxlq2qgjyfNpUkfsnDZtqPPoZ0Zu5Da5gTkDgW64r5PPpWIXIykel1FlREpmFR_Q5AYTyDuCbSZOj9w0OtRV0YP9OVR1nEydOVzTNZ6gjsWocKLKZzyPKprv6gBKQa1J6TVkYy_aJ8BtJMKND_ZwcsxkjMjpKrhqexEr_ADac-1l8KpQ_Ov5hj5KureL9j-8oJ4n9bjKqMy7rXXFqKfBER77k-EWXPmLTmPo4tpu-dCoUQJmF53Kdx6HRR"
+                
+              />
+            </a>
+            </div>
+            <h5 class="font-headline-md text-[18px] text-white mb-2">
+              AGV Pista GP RR Carbon
+            </h5>
+            <div class="flex justify-between items-center">
+              <p class="text-secondary font-bold text-lg">$1,195.00</p>
+              <button
+                class="p-2 rounded-full hover:bg-secondary/20 text-secondary transition-colors"
+              >
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div
+            class="min-w-[320px] glass-panel p-6 rounded-xl snap-center hover:border-primary/50 transition-all cursor-pointer group"
+          >
+            <div
+              class="h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-high relative"
+            >
+              <img
+                class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                data-alt="A pair of Rizoma Stealth Mirrors for superbikes, made from CNC-machined aluminum with a sleek black anodized finish. They are shown in their aerodynamic 'closed' winglet position, appearing as sharp, aggressive additions to a bike's front end. Clean minimalist studio lighting."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCViCC1GFa6BljXaL-Hm07gFlJ3PYoVveT5583BLhYyPNhpM_DnbJz4-2H64uZhOTqld14nMpTVgY995er36A-OUQyx2YbtEKwa-j4xXlH3KQb5tfyDbt589BzH8qjjj6MdNRdCzhJDrTf-FGHjHa3-EzVZ7iks35qisAWF-h1g2qjWw-8O5T9e1SiS1qdLpiQYIapWEqdr4AW1pAqe5JM2lhsDsiOXoPY3xDX9sHcM5UPPLg6mYj_GK09FB2U2pCDS7qKx-nuzrjxM"
+              />
+            </div>
+            <h5 class="font-headline-md text-[18px] text-white mb-2">
+              Rizoma Stealth Mirrors
+            </h5>
+            <div class="flex justify-between items-center">
+              <p class="text-secondary font-bold text-lg">$480.00</p>
+              <button
+                class="p-2 rounded-full hover:bg-secondary/20 text-secondary transition-colors"
+              >
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+              </button>
+            </div>
+          </div>
+          <!-- Product Card 4 -->
+          <div
+            class="min-w-[320px] glass-panel p-6 rounded-xl snap-center hover:border-primary/50 transition-all cursor-pointer group"
+          >
+            <div
+              class="h-64 rounded-lg overflow-hidden mb-6 bg-surface-container-high relative"
+            >
+              <img
+                class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                data-alt="A set of premium Ohlins front fork suspension components for a Ducati. The bright gold outer tubes and precision-machined silver adjustments are shown in a clean, high-key studio environment. The image emphasizes high-performance racing technology and luxury branding."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpp9bY3O9wuZUpdzgKSZaWlwDHwRtza6OVZW6ZvoKUerT7DjltrEmlszQhw98DpuzEByNx8fjLleu8NkSOl9PoKNWk5kfxYNltUWdXbZl-QFqriiDWDfFEdGjigHIqAkDYLyho2uZR5NMytC4E0fQSC8ud0Sk7u8HWHhuWBhuTSlwbrYd_Q1fHlUBwGrWorMBEubY3IdfRyVO5MJJ1OP9RCtF5CvLE7fcZ4ExwcqB3L5NpIbRm1b0y63Xe63RZE4_Y0Za2UcvM5Q_Q"
+              />
+            </div>
+            <h5 class="font-headline-md text-[18px] text-white mb-2">
+              Ohlins FGR 250 Forks
+            </h5>
+            <div class="flex justify-between items-center">
+              <p class="text-secondary font-bold text-lg">$3,200.00</p>
+              <button
+                class="p-2 rounded-full hover:bg-secondary/20 text-secondary transition-colors"
+              >
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Newsletter Section -->
+      <section class="py-section-gap px-margin-desktop">
+        <div
+          class="max-w-4xl mx-auto glass-panel p-12 md:p-20 rounded-3xl relative overflow-hidden text-center"
+        >
+          <div
+            class="absolute -top-24 -left-24 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full"
+          ></div>
+          <div
+            class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"
+          ></div>
+          <h3 class="font-headline-lg text-headline-lg text-white mb-6">
+            Únete al Círculo Raiders
+          </h3>
+          <p
+            class="text-on-surface-variant font-body-lg text-body-lg mb-10 max-w-lg mx-auto"
+          >
+            Recibe acceso anticipado a lanzamientos exclusivos, eventos de pista
+            y ofertas limitadas.
+          </p>
+          <form
+            class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto"
+            onsubmit="event.preventDefault()"
+          >
+            <input
+              class="flex-1 bg-surface-container-lowest border border-outline-variant rounded-lg px-6 py-4 text-white focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+              placeholder="Tu correo electrónico"
+              type="email"
+            />
+            <button
+              class="primary-gradient-btn px-8 py-4 rounded-lg font-label-md text-label-md text-white uppercase tracking-wider"
+            >
+              Suscribirse
+            </button>
+          </form>
+          <p class="text-xs text-on-surface-variant/50 mt-6">
+            Respetamos tu privacidad. Desuscríbete en cualquier momento.
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-dim relative w-full mt-section-gap border-t border-outline-variant/30"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto"
+      >
+        <div class="md:col-span-1">
+          <h2
+            class="font-display-lg-mobile text-display-lg-mobile text-primary mb-6"
+          >
+            Raiders
+          </h2>
+          <p class="text-on-surface-variant font-body-md">
+            La cúspide del rendimiento y el estilo para el motociclista moderno.
+          </p>
+          <div class="flex gap-4 mt-8">
+            <span
+              class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors"
+              >public</span
+            >
+            <span
+              class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors"
+              >share</span
+            >
+            <span
+              class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors"
+              >chat</span
+            >
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-label-md mb-6 uppercase tracking-widest">
+            Tienda
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Nuevos Arribos</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Más Vendidos</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Marcas</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Outlet</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-label-md mb-6 uppercase tracking-widest">
+            Soporte
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Shipping</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Returns</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Dealer Locator</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >FAQ</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-label-md mb-6 uppercase tracking-widest">
+            Legal
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-white transition-colors"
+                href="#"
+                >Terms of Service</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant/10 py-8 px-margin-desktop">
+        <div
+          class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-on-surface-variant text-sm font-label-md uppercase">
+            © 2024 APEX MOTO EXCLUSIVE. ALL RIGHTS RESERVED.
+          </p>
+          <div class="flex gap-6">
+            <img
+              alt="Visa"
+              class="h-6 opacity-50 grayscale hover:grayscale-0 transition-all"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu2dr3L18egppnlvJb1k6mmPr12xSZ-8kZYh2gy_zz6BIG8E8mdVzCtOzL7cpmrwBnaG8dGGgLnTESXCy9tBhDMstwbxQVLEzl9HJZiEIxuFAUtjdpiMuvhpD8yOnbCv6GiIVqQYKpoPoA8isPXqsmA7E7rY_PmeOOBFoA1YChVm_GPATko-sGd2JtHg9hCztt2oiWxuDt8b7FibsMo7rBC1tOjZ1ZHwcZY7RQn9pk67eENtpA51WsLkxuKDXBWpKVlaA0i3BFTXwl"
+            />
+            <img
+              alt="Mastercard"
+              class="h-6 opacity-50 grayscale hover:grayscale-0 transition-all"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0016MW0zErMHF51huHksvsWz-oIy4z-4YSzmIWt8kWziCN71Q8gQ-4f1jO2JQzYFY5EaW0Xdhzweu1ieU-gmWGetWeNBsujFl-lyCCjTmdSzIWXxTeIzWUnBPWsEI74G3gcnC7g9XeCDWFUyLQlq6xLM0XyDUUP8pPtiRDgMqpeVx2qrhJ2pGjZJYTtT3x16RStMMu8nenl6sKoK7X9KQ6f206m81Ahe5jiQesjvMzjjG2flrhTwnUp-pIzrnqo_FQfIpTKw8X3xF"
+            />
+            <img
+              alt="Paypal"
+              class="h-6 opacity-50 grayscale hover:grayscale-0 transition-all"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk9Juewd3tW_Ayk-KrcUC6MFqsodrHsswxL5eZ7-cGwNsb6eveHd2EWLcHmdNu7rJqsiwRPwE9nWOoZLVQpFWKHEcijCgV8xiGGmuRubQtbrh9piY3GFK5xL02COz09dUVqli3QuavfJR4zU52FnJZyRAJUVegx2_jdEu4-QPmEbKPEz6jrAWgnBliBnCPXHyDOV00OxGtBCifk2S6mvDDR1omxcLfv7KlvcWEFgK-RSOFoN1bydB3vfHkmI74ixeHE9e00i4qf8O9"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Mobile Navigation Bar -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-3 bg-surface-container/90 backdrop-blur-lg border-t border-white/10 z-50 rounded-t-xl shadow-2xl shadow-black"
+    >
+      <div
+        class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl p-2 scale-95 active:scale-90 transition-transform"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >home</span
+        >
+        <span class="font-label-md text-[10px] mt-1">Home</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined">grid_view</span>
+        <span class="font-label-md text-[10px] mt-1">Catalog</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="font-label-md text-[10px] mt-1">Cart</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined">person</span>
+        <span class="font-label-md text-[10px] mt-1">Profile</span>
+      </div>
+    </nav>
+    <script>
+      // Micro-interaction for scroll effects on header
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("py-2", "bg-surface/95");
+          header.classList.remove("py-4", "bg-surface/80");
+        } else {
+          header.classList.add("py-4", "bg-surface/80");
+          header.classList.remove("py-2", "bg-surface/95");
+        }
+      });
+
+      // Hover animation for product cards
+      document.querySelectorAll(".glass-panel").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+      });
+    </script>
+  </body>
+</html>

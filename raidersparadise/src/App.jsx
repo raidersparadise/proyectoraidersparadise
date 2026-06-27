@@ -1,7 +1,9 @@
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import HU02_Login from "./componentes/HU02_Login";
 import './App.css'
 
 function App() {

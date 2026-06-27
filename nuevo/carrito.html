@@ -1,0 +1,623 @@
+<!doctype html>
+
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Carrito de Compras | RaidersParadise</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #131316;
+        color: #e5e1e5;
+        overflow-x: hidden;
+      }
+
+      .glass-card {
+        background: rgba(42, 42, 45, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+      }
+
+      .primary-gradient {
+        background: linear-gradient(135deg, #ff6b00 0%, #ff3d00 100%);
+        transition: all 0.3s ease;
+      }
+
+      .primary-gradient:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Custom scrollbar for a premium look */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #131316;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #46464e;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #c0c3f2;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#2a2a2d",
+              "primary-fixed-dim": "#c0c3f2",
+              primary: "#c0c3f2",
+              "on-tertiary-container": "#a8875a",
+              "error-container": "#93000a",
+              tertiary: "#e6c08f",
+              "outline-variant": "#46464e",
+              "on-secondary": "#342072",
+              "on-error-container": "#ffdad6",
+              "secondary-fixed": "#e7deff",
+              "inverse-primary": "#575b84",
+              "surface-variant": "#353437",
+              "surface-dim": "#131316",
+              "secondary-container": "#4d3b8d",
+              "on-background": "#e5e1e5",
+              secondary: "#ccbeff",
+              outline: "#919099",
+              "on-primary": "#292d53",
+              "tertiary-container": "#362100",
+              "on-surface-variant": "#c7c5cf",
+              "on-error": "#690005",
+              "primary-fixed": "#dfe0ff",
+              "on-primary-fixed": "#14183d",
+              error: "#ffb4ab",
+              "tertiary-fixed": "#ffddb3",
+              "on-secondary-fixed-variant": "#4b398a",
+              "on-tertiary": "#432c07",
+              "surface-container-low": "#1b1b1e",
+              "secondary-fixed-dim": "#ccbeff",
+              "on-tertiary-fixed": "#291800",
+              "inverse-surface": "#e5e1e5",
+              "on-secondary-container": "#beadff",
+              background: "#131316",
+              "on-surface": "#e5e1e5",
+              "surface-container-lowest": "#0e0e11",
+              "on-primary-container": "#8689b5",
+              "primary-container": "#1e2247",
+              "on-tertiary-fixed-variant": "#5c421b",
+              "surface-bright": "#39393c",
+              "surface-container-highest": "#353437",
+              "tertiary-fixed-dim": "#e6c08f",
+              "on-secondary-fixed": "#1f025e",
+              "surface-tint": "#c0c3f2",
+              surface: "#131316",
+              "inverse-on-surface": "#303033",
+              "surface-container": "#201f22",
+              "on-primary-fixed-variant": "#40446b",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "section-gap": "120px",
+              "margin-desktop": "64px",
+              gutter: "24px",
+              "container-max": "1280px",
+              base: "8px",
+              "margin-mobile": "20px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "label-md": ["Montserrat"],
+              "headline-lg": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "body-md": ["Montserrat"],
+              "body-lg": ["Montserrat"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background min-h-screen flex flex-col">
+    <!-- TopAppBar Shell -->
+    <header
+      class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl text-primary dark:text-primary docked full-width top-0 sticky z-50 border-b border-on-surface/10 shadow-deep-navy transition-all duration-300 ease-in-out"
+    >
+      <div
+        class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <button
+            class="material-symbols-outlined text-primary"
+            data-icon="menu"
+          >
+            menu
+          </button>
+          <h1
+            class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary"
+          >
+            Raiders
+          </h1>
+        </div>
+        <nav class="hidden md:flex gap-8 items-center">
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+            >HOME</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+            >CATALOG</a
+          >
+          <a
+            class="font-label-md text-label-md text-primary border-b-2 border-primary"
+            href="#"
+            >CART</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+            >PROFILE</a
+          >
+        </nav>
+        <div class="flex items-center gap-4">
+          <button
+            class="material-symbols-outlined text-primary"
+            data-icon="shopping_cart"
+          >
+            shopping_cart
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12"
+    >
+      <div class="flex flex-col lg:flex-row gap-gutter">
+        <!-- Product List Section -->
+        <div class="flex-grow space-y-6">
+          <h2
+            class="font-headline-lg text-headline-lg mb-8 uppercase tracking-widest"
+          >
+            TU CARRITO <span class="text-primary-fixed-dim">(2 ARTÍCULOS)</span>
+          </h2>
+          <!-- Product Card 1: Casco Carbono -->
+          <div
+            class="glass-card rounded-xl p-6 flex flex-col md:flex-row gap-6 items-center group transition-all duration-500 hover:border-primary/30"
+          >
+            <div
+              class="w-full md:w-48 h-48 rounded-lg overflow-hidden bg-surface-container-highest shrink-0"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A high-end professional carbon fiber motorcycle helmet with a sleek aerodynamic design, resting on a polished dark surface. The lighting is dramatic and moody, highlighting the intricate weave of the carbon fiber material with sharp highlights and deep shadows. The background is a minimalist, dark studio setting that emphasizes the elite engineering and premium quality of the headgear."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlVbeB8eBP2e6wC95crE80qkBpFeWxJ27-xp1MeZS_285NO1djj9b1VXzQ_NB6VYxsVPudkWids3gqIcb3L93AeSxkN7tpUVJSp9RtI_3qZBgKxPV78d-37aqXIFP9d28gSmoq0DJtWVFhu_1n6TodSVK2gDTg_pDswKhrh9-Y450EhAN2QrO44rAVleFWLUqCwy1rWH50qGd1BE0OiIq7WNxIIvDs_BzSUnDWdSRzwRsoH2avostWI956eeC7HMVnSKzzfVBm14fI"
+              />
+            </div>
+            <div
+              class="flex-grow flex flex-col md:flex-row justify-between w-full"
+            >
+              <div class="space-y-2">
+                <p
+                  class="text-primary text-xs font-bold tracking-widest uppercase"
+                >
+                  APEX ELITE SERIES
+                </p>
+                <h3 class="font-headline-md text-headline-md">
+                  Casco Integral Carbon Pro-X
+                </h3>
+                <p
+                  class="text-on-surface-variant font-body-md text-body-md italic"
+                >
+                  Fibra de carbono aeroespacial, Visor fotocromático
+                </p>
+                <div class="flex items-center gap-4 mt-4">
+                  <div
+                    class="flex items-center border border-outline-variant rounded-full px-3 py-1 bg-surface-container-low"
+                  >
+                    <button
+                      class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors"
+                      onclick="
+                        this.nextElementSibling.innerText = Math.max(
+                          1,
+                          parseInt(this.nextElementSibling.innerText) - 1,
+                        )
+                      "
+                    >
+                      remove
+                    </button>
+                    <span class="px-4 font-bold min-w-[40px] text-center"
+                      >1</span
+                    >
+                    <button
+                      class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors"
+                      onclick="
+                        this.previousElementSibling.innerText =
+                          parseInt(this.previousElementSibling.innerText) + 1
+                      "
+                    >
+                      add
+                    </button>
+                  </div>
+                  <button
+                    class="text-error font-label-md text-label-md flex items-center gap-1 hover:underline"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="delete"
+                      >delete</span
+                    >
+                    ELIMINAR
+                  </button>
+                </div>
+              </div>
+              <div class="mt-4 md:mt-0 text-right">
+                <p class="font-headline-md text-headline-md text-primary">
+                  $1,250.00
+                </p>
+                <span class="text-on-surface-variant text-xs line-through"
+                  >$1,400.00</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2: Escape Titanio -->
+          <div
+            class="glass-card rounded-xl p-6 flex flex-col md:flex-row gap-6 items-center group transition-all duration-500 hover:border-primary/30"
+          >
+            <div
+              class="w-full md:w-48 h-48 rounded-lg overflow-hidden bg-surface-container-highest shrink-0"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A precision-engineered titanium motorcycle exhaust system with heat-induced blue and purple discoloration on the welds, showing high-performance use. The exhaust is captured in a close-up, high-contrast shot within a modern industrial garage. Soft cyan and magenta ambient lighting reflects off the metallic surfaces, evoking a sense of high-speed performance and nocturnal racing culture."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5TtGIstxUks_m3nc2G1YGU9Th46cClBUkD-oMxOSVn8DZ4oxPxXigt92DpFUNTu6ys9Fc80pZ0IPax2uTJaEnOz2IM8suHv6SqoA6wG3t_Ch-nQzuKQZg3hmu3axH45RbmJ13SvNJ8TCX9CFdo4X7G7NH__FqBZ25C60klOev9YHSa-6zPAKsQunzfIuqwokl6F3Vn2t54X1elokeSn4-GoFCX2Qw56G2sg-4jHHquq31UMSW80wWwzM9sXXygwQQBFMQHA7buY4_"
+              />
+            </div>
+            <div
+              class="flex-grow flex flex-col md:flex-row justify-between w-full"
+            >
+              <div class="space-y-2">
+                <p
+                  class="text-primary text-xs font-bold tracking-widest uppercase"
+                >
+                  AKRAPOVIČ LIMITED
+                </p>
+                <h3 class="font-headline-md text-headline-md">
+                  Sistema de Escape Titanio GPR
+                </h3>
+                <p
+                  class="text-on-surface-variant font-body-md text-body-md italic"
+                >
+                  Reducción de peso 4.2kg, Sonido de competición
+                </p>
+                <div class="flex items-center gap-4 mt-4">
+                  <div
+                    class="flex items-center border border-outline-variant rounded-full px-3 py-1 bg-surface-container-low"
+                  >
+                    <button
+                      class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors"
+                      onclick="
+                        this.nextElementSibling.innerText = Math.max(
+                          1,
+                          parseInt(this.nextElementSibling.innerText) - 1,
+                        )
+                      "
+                    >
+                      remove
+                    </button>
+                    <span class="px-4 font-bold min-w-[40px] text-center"
+                      >1</span
+                    >
+                    <button
+                      class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors"
+                      onclick="
+                        this.previousElementSibling.innerText =
+                          parseInt(this.previousElementSibling.innerText) + 1
+                      "
+                    >
+                      add
+                    </button>
+                  </div>
+                  <button
+                    class="text-error font-label-md text-label-md flex items-center gap-1 hover:underline"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm"
+                      data-icon="delete"
+                      >delete</span
+                    >
+                    ELIMINAR
+                  </button>
+                </div>
+              </div>
+              <div class="mt-4 md:mt-0 text-right">
+                <p class="font-headline-md text-headline-md text-primary">
+                  $2,890.00
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Empty state hint -->
+          <div class="pt-8 border-t border-outline-variant/30">
+            <a
+              class="text-primary hover:underline flex items-center gap-2 font-label-md text-label-md"
+              href="#"
+            >
+              <span class="material-symbols-outlined">arrow_back</span>
+              CONTINUAR COMPRANDO
+            </a>
+          </div>
+        </div>
+        <!-- Order Summary Section -->
+        <aside class="w-full lg:w-96">
+          <div class="glass-card rounded-2xl p-8 sticky top-24">
+            <h2
+              class="font-headline-md text-headline-md mb-6 border-b border-outline-variant/30 pb-4"
+            >
+              RESUMEN DE ORDEN
+            </h2>
+            <div class="space-y-4 mb-8">
+              <div class="flex justify-between font-body-md text-body-md">
+                <span class="text-on-surface-variant">Subtotal</span>
+                <span class="font-semibold text-on-surface">$4,140.00</span>
+              </div>
+              <div class="flex justify-between font-body-md text-body-md">
+                <span class="text-on-surface-variant"
+                  >Envío Premium (Asegurado)</span
+                >
+                <span class="font-semibold text-on-surface">$45.00</span>
+              </div>
+              <div class="flex justify-between font-body-md text-body-md">
+                <span class="text-on-surface-variant"
+                  >Impuestos (Estimado)</span
+                >
+                <span class="font-semibold text-on-surface">$331.20</span>
+              </div>
+              <div class="h-px bg-outline-variant/30 my-4"></div>
+              <div class="flex justify-between items-end">
+                <span class="font-headline-md text-headline-md">TOTAL</span>
+                <span class="font-display-lg text-headline-lg text-primary"
+                  >$4,516.20</span
+                >
+              </div>
+            </div>
+            <div class="space-y-4">
+              <button
+                class="w-full primary-gradient text-white font-bold py-4 rounded-xl text-center shadow-lg uppercase tracking-wider flex items-center justify-center gap-2 group"
+              >
+                <span>CONTINUAR AL PAGO</span>
+                <span
+                  class="material-symbols-outlined transition-transform group-hover:translate-x-1"
+                  >lock</span
+                >
+              </button>
+              <div
+                class="flex items-center justify-center gap-4 text-on-surface-variant opacity-60"
+              >
+                <span class="material-symbols-outlined">verified_user</span>
+                <span class="text-[10px] uppercase tracking-tighter"
+                  >PAGO 100% ENCRIPTADO Y SEGURO</span
+                >
+              </div>
+            </div>
+            <!-- Promo Code -->
+            <div class="mt-8">
+              <label
+                class="block text-[10px] font-bold text-on-surface-variant uppercase mb-2"
+                >CÓDIGO PROMOCIONAL</label
+              >
+              <div class="flex gap-2">
+                <input
+                  class="bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 flex-grow focus:border-primary focus:ring-0 text-sm"
+                  placeholder="EJ: APEXSPEED"
+                  type="text"
+                />
+                <button
+                  class="bg-surface-container-high border border-outline-variant px-4 py-2 rounded-lg text-xs font-bold hover:bg-outline-variant transition-colors"
+                >
+                  APLICAR
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <!-- Footer Shell -->
+    <footer
+      class="bg-surface-dim dark:bg-surface-dim text-secondary dark:text-secondary relative w-full mt-section-gap border-t border-outline-variant/30"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <h3
+            class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4"
+          >
+            APEX MOTO
+          </h3>
+          <p class="text-on-surface-variant font-body-md text-body-md">
+            Ingeniería de élite para los entusiastas de la velocidad más
+            exigentes.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <h4 class="text-white font-bold mb-2">SOPORTE</h4>
+          <a
+            class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+            href="#"
+            >Terms of Service</a
+          >
+        </div>
+        <div class="flex flex-col gap-2">
+          <h4 class="text-white font-bold mb-2">LOGÍSTICA</h4>
+          <a
+            class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+            href="#"
+            >Shipping</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+            href="#"
+            >Returns</a
+          >
+        </div>
+        <div class="flex flex-col gap-2">
+          <h4 class="text-white font-bold mb-2">CONTACTO</h4>
+          <a
+            class="text-on-surface-variant hover:text-white transition-colors font-body-md text-body-md"
+            href="#"
+            >Dealer Locator</a
+          >
+          <div class="flex gap-4 mt-4">
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-primary"
+              >public</span
+            >
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-primary"
+              >mail</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="text-center py-8 border-t border-outline-variant/10">
+        <p class="font-label-md text-label-md opacity-40">
+          © 2024 APEX MOTO EXCLUSIVE. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+    <!-- BottomNavBar Shell (Mobile only) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-3 bg-surface-container/90 dark:bg-surface-container/90 backdrop-blur-lg border-t border-white/10 shadow-2xl shadow-black z-50 rounded-t-xl"
+    >
+      <div
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary"
+      >
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+        <span class="font-label-md text-[10px]">Home</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary"
+      >
+        <span class="material-symbols-outlined" data-icon="grid_view"
+          >grid_view</span
+        >
+        <span class="font-label-md text-[10px]">Catalog</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl p-2 scale-95 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined" data-icon="shopping_bag"
+          >shopping_bag</span
+        >
+        <span class="font-label-md text-[10px]">Cart</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary"
+      >
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+        <span class="font-label-md text-[10px]">Profile</span>
+      </div>
+    </nav>
+    <script>
+      // Simple micro-interaction for item deletion
+      document.querySelectorAll("button").forEach((btn) => {
+        if (btn.innerText.includes("ELIMINAR")) {
+          btn.addEventListener("click", function () {
+            const card = this.closest(".glass-card");
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              card.remove();
+            }, 500);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
