@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import { Eye, EyeOff, Shield, AlertCircle, Loader2 } from "lucide-react";
 
+
 export default function Login() {
+  const { login } = useAuth();
   const [form, setForm] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -13,14 +16,25 @@ export default function Login() {
   };
 
   const handleSubmit = async () => {
-    if (!form.email || !form.password) {
-      setError("Completa todos los campos para continuar.");
-      return;
-    }
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
+  if (!form.email || !form.password) {
+    setError("Completa todos los campos para continuar.");
+    return;
+  }
+
+  setLoading(true);
+
+  await new Promise((r) => setTimeout(r, 1000));
+
+  const success = login(form.email, form.password);
+
+  setLoading(false);
+
+  if (success) {
+    alert("Bienvenido al sistema");
+    setError("");
+  } else {
     setError("Credenciales incorrectas. Verifica tu correo y contraseña.");
+  }
   };
 
   return (

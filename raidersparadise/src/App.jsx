@@ -4,13 +4,25 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import HU02_Login from "./componentes/HU02_Login";
+<<<<<<< HEAD
+=======
+import { AuthProvider } from "./context/AuthContext";
+>>>>>>> 5a125bce55b382612b829f78fff791d35602c9fa
 import './App.css'
 
+
 function App() {
+  
   const [count, setCount] = useState(0)
 
   return (
     <>
+
+    <AuthProvider>
+      <HU02_Login />
+    </AuthProvider>
+    
+      
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
