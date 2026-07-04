@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Productos | APEX MOTO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ccbeff",
+                    "outline": "#919099",
+                    "background": "#131316",
+                    "secondary": "#ccbeff",
+                    "on-background": "#e5e1e5",
+                    "on-tertiary-container": "#a8875a",
+                    "on-secondary-fixed": "#1f025e",
+                    "primary-container": "#1e2247",
+                    "inverse-primary": "#575b84",
+                    "inverse-on-surface": "#303033",
+                    "primary-fixed": "#dfe0ff",
+                    "on-secondary": "#342072",
+                    "on-primary-container": "#8689b5",
+                    "on-primary-fixed-variant": "#40446b",
+                    "surface-dim": "#131316",
+                    "primary-fixed-dim": "#c0c3f2",
+                    "tertiary": "#e6c08f",
+                    "tertiary-container": "#362100",
+                    "primary": "#c0c3f2",
+                    "surface-container-lowest": "#0e0e11",
+                    "secondary-container": "#4d3b8d",
+                    "surface-tint": "#c0c3f2",
+                    "on-primary-fixed": "#14183d",
+                    "surface-container-low": "#1b1b1e",
+                    "surface-bright": "#39393c",
+                    "on-error": "#690005",
+                    "on-surface": "#e5e1e5",
+                    "surface": "#131316",
+                    "surface-container": "#201f22",
+                    "on-tertiary": "#432c07",
+                    "on-surface-variant": "#c7c5cf",
+                    "tertiary-fixed": "#ffddb3",
+                    "outline-variant": "#46464e",
+                    "on-primary": "#292d53",
+                    "on-secondary-container": "#beadff",
+                    "on-tertiary-fixed": "#291800",
+                    "inverse-surface": "#e5e1e5",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#2a2a2d",
+                    "tertiary-fixed-dim": "#e6c08f",
+                    "secondary-fixed": "#e7deff",
+                    "on-tertiary-fixed-variant": "#5c421b",
+                    "on-secondary-fixed-variant": "#4b398a",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#353437",
+                    "surface-variant": "#353437",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            },
+            "boxShadow": {
+              "deep-navy": "0 20px 40px -10px rgba(0, 0, 0, 0.4)",
+              "glass": "0 8px 32px 0 rgba(0, 0, 0, 0.37)"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131316;
+            color: #e5e1e5;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+        }
+        .purple-glow:focus {
+            box-shadow: 0 0 15px rgba(85, 67, 149, 0.4);
+            border-color: #554395;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131316;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2d;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex min-h-screen">
+<!-- NavigationDrawer Shell -->
+<aside class="h-full w-64 fixed left-0 top-0 z-40 bg-surface-container-low border-r border-outline-variant flex flex-col gap-base p-base">
+<div class="px-4 py-8 mb-4">
+<h1 class="font-headline-sm text-headline-sm text-primary">APEX MOTO</h1>
+<div class="mt-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a high-level corporate administrator for a luxury motorcycle brand. The lighting is dramatic with cool blue and deep violet undertones. The setting is a minimalist, modern office environment with subtle glass textures and high-end tech visible in the background. High-contrast, sharp focus, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4Z-yZ0vsQmccb-qX-7-E97TKPj-xEE9W0o-sM-gd3oFeBmimIN8K-pJF7UEK1uflokboxQdW0HIQLWEad20Pcd_pyqyNNKJ5F-rokqJGagdkdRathNjdSHgbScfOFC1dLeeMgny2Kpm83OjZNYQZphohDBgXmHWR9lP17XgWZohkh4HqS0pIAnDg_YT2j0OuWPZXKHZ8jtCaxdhlU_UYPyFQrbKmOvz0OhtiwVipmfp99t6DVyUNnKA"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Admin Panel</p>
+<p class="text-xs text-on-surface-variant">System Controller</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-2 transition-all duration-200 ease-out" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-2 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Users</span>
+</a>
+<!-- Active Navigation: Products -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-r-full font-bold transition-all duration-200 ease-out" href="productos.html">
+<span class="material-symbols-outlined">motorcycle</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-2 transition-all duration-200 ease-out" href="gestion_inventario.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-2 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-2 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-2 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/30 pt-4 pb-4">
+<a class="flex items-center gap-5 px-4 py-3 text-on-surface-variant hover:bg-error-container/20 hover:text-error transition-all duration-200" href="index.html"></a>
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+
+<p class="px-4 mt-2 text-[10px] text-outline tracking-widest uppercase opacity-50">v2.4.0</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 p-margin-desktop bg-background">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<p class="text-primary font-label-md tracking-[0.2em] uppercase mb-2">Administración</p>
+<h2 class="font-display-lg text-headline-lg text-on-surface">Catálogo de Productos</h2>
+</div>
+<a href="registrar_producto.html"class="accent-gradient text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-orange-900/20">
+<span class="material-symbols-outlined">add</span>
+Añadir Producto</a>
+</header>
+<!-- Search and Filters -->
+<section class="glass-card rounded-2xl p-6 mb-8 flex flex-wrap items-center gap-6">
+<div class="relative flex-1 min-w-[300px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-4 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50" placeholder="Buscar por nombre, SKU o modelo..." type="text"/>
+</div>
+<div class="flex items-center gap-3 overflow-x-auto pb-2 md:pb-0">
+<span class="text-on-surface-variant font-label-md mr-2">Filtros:</span>
+<button class="px-5 py-2 rounded-full bg-primary-container text-primary font-label-md border border-primary/20 hover:bg-primary hover:text-on-primary transition-all">Todos</button>
+<button class="px-5 py-2 rounded-full glass-card text-on-surface-variant font-label-md hover:border-primary/50 transition-all">Cascos</button>
+<button class="px-5 py-2 rounded-full glass-card text-on-surface-variant font-label-md hover:border-primary/50 transition-all">Escapes</button>
+<button class="px-5 py-2 rounded-full glass-card text-on-surface-variant font-label-md hover:border-primary/50 transition-all">Guantes</button>
+<button class="px-5 py-2 rounded-full glass-card text-on-surface-variant font-label-md hover:border-primary/50 transition-all">Electrónica</button>
+</div>
+<button class="p-3 rounded-xl glass-card text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</section>
+<!-- Product Grid (Bento Style Variation) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="glass-card rounded-3xl overflow-hidden group hover:border-primary/30 transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A hyper-realistic close-up shot of a premium carbon fiber motorcycle helmet. The helmet features sleek aerodynamic lines, a dark tinted visor, and visible high-end weaving patterns. It's set against a dark industrial garage background with moody purple neon accents. Sharp details, cinematic lighting, luxury motorcycle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Yz7LCOvfhgoVSiBwFj59JAK4IfMQl591DmIRM1A2Z9zXXP9C7fIRyGN3OQHZZPVHy_ID87n1MMCUcTcb3hWQuBVceRP_8W3fgI2JVXDmO2TwFHY8nbrzPkItQjsrzuO2QMWzhFySxxhyVqFc_2h4KECADNP3FzptKeT8q1-nmVeDo_w1G1O404dxQ7jQ88mO7xf5aobsbRH5qpZCOJvrJ5CWVXrKluOdqr0BAOe2U53OxwFb_Rk2Iw"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-surface/80 backdrop-blur-md rounded-lg text-primary font-bold text-sm border border-primary/20">
+                        SKU: CPX-2024
+                    </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-xs font-bold backdrop-blur-md uppercase tracking-wider">Activo</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">Cascos</p>
+<h3 class="font-headline-md text-on-surface group-hover:text-primary transition-colors">Carbon Fiber Pro X</h3>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-xl">$849.00</p>
+<p class="text-on-surface-variant text-xs">Stock: 12 unidades</p>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 py-3 glass-card rounded-xl font-label-md text-on-surface hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                            Ver
+                        </button>
+<button class="flex-1 py-3 glass-card rounded-xl font-label-md text-on-surface hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit</span>
+                            Editar
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl glass-card text-error/60 hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="glass-card rounded-3xl overflow-hidden group hover:border-primary/30 transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="High-performance titanium motorcycle exhaust system displayed as a sculpture. The metal shows iridescent heat-treating colors like blue, purple, and gold. The background is a dark, polished concrete floor with dramatic overhead spotlights. Extreme metallic textures, engineering excellence, premium technical vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy3Oka2_7xFP7WyrvHYkMgIynkJGe6bFH38wQdybqBUcX2ghxhMw1oIn-xacMIlQ-l61frZbLqS3z113uiM4yZB9GjR7DgT7y196611RM3KhCcfTNc79H3KT7Roomeg-PBr4JCAfyXyWiLxMiJEPrPXuSj-vNmMteNC3MWeodYO_csBs0I5Uj23sidA3XfR9pQAk9VNZIaSXiDtS-ohLNb3qBa0mrPuwMEFj602mVduTHJO6LtiBEq9g"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-surface/80 backdrop-blur-md rounded-lg text-primary font-bold text-sm border border-primary/20">
+                        SKU: ELT-009
+                    </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-tertiary/20 text-tertiary border border-tertiary/30 rounded-full text-xs font-bold backdrop-blur-md uppercase tracking-wider">Bajo Stock</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">Escapes</p>
+<h3 class="font-headline-md text-on-surface group-hover:text-primary transition-colors">Evolution Line Titanium</h3>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-xl">$1,299.00</p>
+<p class="text-tertiary font-bold text-xs">Stock: 2 unidades</p>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 py-3 glass-card rounded-xl font-label-md text-on-surface hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                            Ver
+                        </button>
+<button class="flex-1 py-3 glass-card rounded-xl font-label-md text-on-surface hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit</span>
+                            Editar
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl glass-card text-error/60 hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="glass-card rounded-3xl overflow-hidden group hover:border-primary/30 transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Elite leather motorcycle racing gloves with armored knuckles and tactile reinforced palms. The leather is deep black with vibrant orange stitching. They are resting on the tank of a high-performance sportbike. Soft bokeh background of a racetrack at dusk. Textural detail of premium leather and protective components." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7Jsc1wZ5CJVZBTT2anNDYUeoQpZK3Wv6HpQuJ_OwIrVWqidQPfUb6_FgqgpH5Lz8sr0f4N5TDWA__DzuzuvPwt1_noFbOcKNvUzbnPMSaupnaJjQAfLzurqScDxlQyXdtynbAwzxU_Y5Wl8x2JARaqbmQHTxxe7ITMQhUS5ba80TQNvM6BHK0XIX6_9VUnibtW-VqR0CylaCEVrLqJ2rXPUQW_3XDmNZE2pzfmjaMittYiQqEwxtipQ"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-surface/80 backdrop-blur-md rounded-lg text-primary font-bold text-sm border border-primary/20">
+                        SKU: ARS-XT
+                    </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-xs font-bold backdrop-blur-md uppercase tracking-wider">Activo</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">Guantes</p>
+<h3 class="font-headline-md text-on-surface group-hover:text-primary transition-colors">Apex Race Stealth</h3>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-xl">$215.00</p>
+<p class="text-on-surface-variant text-xs">Stock: 45 unidades</p>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 py-3 glass-card rounded-xl font-label-md text-on-surface hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                            Ver
+                        </button>
+<button class="flex-1 py-3 glass-card rounded-xl font-label-md text-on-surface hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit</span>
+                            Editar
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl glass-card text-error/60 hover:bg-error/10 hover:text-error transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Table Row-Style Variation for wide screens (Hidden on mobile) -->
+<div class="lg:col-span-full mt-4 overflow-hidden rounded-3xl glass-card">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 text-on-surface-variant uppercase text-xs font-bold tracking-[0.1em]">
+<th class="px-8 py-5">Producto</th>
+<th class="px-8 py-5">Categoría / SKU</th>
+<th class="px-8 py-5">Precio</th>
+<th class="px-8 py-5">Stock</th>
+<th class="px-8 py-5">Estado</th>
+<th class="px-8 py-5 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg overflow-hidden glass-card">
+<img class="w-full h-full object-cover" data-alt="Technical motorcycle dashboard computer showing real-time telemetry data. Glowing digital interface with violet and orange indicators. Set in a dark environment focusing on the crisp digital display. High-tech automotive electronics aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwN3-M3QN2ALa9EL1hfxqvmgE4lq4n8gNbV4baSDRF2Ab82iN-09FUH7H7H-hnOArzrdyrAOGTH8uukLUdpeJsNGP3p8Ksol4yUoqd4B74nma6IWkrWIfJ8GiBZyRfbarZFIeYQTU8hZe2_jueO5Qp-fKNqmXwGmmZgfJ_FNeP3EMaJGC9HTbKEtHIorB9tEDJkgXsAqJX_0Cxyg8up8Zsf4twb0vvhIPicYhVNma9j-8c0NWM8k8Izg"/>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Quantum ECU Tuner</p>
+<p class="text-xs text-on-surface-variant">Electrónica Pro</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-4">
+<p class="text-on-surface text-sm">Electrónica</p>
+<p class="text-xs text-on-surface-variant">SKU: QNT-77</p>
+</td>
+<td class="px-8 py-4 font-bold text-on-surface">$599.00</td>
+<td class="px-8 py-4 text-on-surface">08</td>
+<td class="px-8 py-4">
+<span class="px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full text-[10px] font-bold uppercase">Activo</span>
+</td>
+<td class="px-8 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="p-2 hover:text-error transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Repeat rows as needed -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- Pagination -->
+<footer class="mt-12 flex justify-between items-center px-4">
+<p class="text-on-surface-variant text-sm font-body-md">Mostrando 1-10 de 128 productos</p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg glass-card text-on-surface-variant hover:border-primary transition-all disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg glass-card text-on-surface-variant hover:border-primary transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg glass-card text-on-surface-variant hover:border-primary transition-all">3</button>
+<span class="text-on-surface-variant mx-1">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg glass-card text-on-surface-variant hover:border-primary transition-all">13</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg glass-card text-on-surface-variant hover:border-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 -z-10 pointer-events-none opacity-20">
+
+</div>
+<script>
+        // Simple hover interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

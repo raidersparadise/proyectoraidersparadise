@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>APEX MOTO | Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #131316;
+            color: #e5e1e5;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(32, 31, 34, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card-hover:hover {
+            background: rgba(42, 42, 45, 0.8);
+            border-color: rgba(192, 195, 242, 0.3);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .accent-gradient {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff3d00 100%);
+        }
+
+        .purple-glow {
+            box-shadow: 0 0 15px rgba(85, 67, 149, 0.4);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #46464e;
+            border-radius: 10px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind Config Execution -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e11",
+                    "background": "#131316",
+                    "outline-variant": "#46464e",
+                    "primary-container": "#1e2247",
+                    "tertiary-fixed-dim": "#e6c08f",
+                    "primary-fixed": "#dfe0ff",
+                    "surface": "#131316",
+                    "on-error": "#690005",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#362100",
+                    "inverse-primary": "#575b84",
+                    "on-primary-container": "#8689b5",
+                    "on-background": "#e5e1e5",
+                    "surface-container-highest": "#353437",
+                    "on-primary-fixed-variant": "#40446b",
+                    "on-primary": "#292d53",
+                    "surface-bright": "#39393c",
+                    "surface-variant": "#353437",
+                    "surface-container-high": "#2a2a2d",
+                    "on-tertiary-fixed": "#291800",
+                    "on-tertiary-container": "#a8875a",
+                    "on-secondary": "#342072",
+                    "secondary-fixed-dim": "#ccbeff",
+                    "on-tertiary": "#432c07",
+                    "outline": "#919099",
+                    "primary": "#c0c3f2",
+                    "surface-container": "#201f22",
+                    "primary-fixed-dim": "#c0c3f2",
+                    "surface-container-low": "#1b1b1e",
+                    "tertiary-fixed": "#ffddb3",
+                    "on-tertiary-fixed-variant": "#5c421b",
+                    "on-secondary-container": "#beadff",
+                    "surface-tint": "#c0c3f2",
+                    "secondary-fixed": "#e7deff",
+                    "inverse-on-surface": "#303033",
+                    "tertiary": "#e6c08f",
+                    "secondary-container": "#4d3b8d",
+                    "on-secondary-fixed": "#1f025e",
+                    "secondary": "#ccbeff",
+                    "on-primary-fixed": "#14183d",
+                    "surface-dim": "#131316",
+                    "inverse-surface": "#e5e1e5",
+                    "on-secondary-fixed-variant": "#4b398a",
+                    "on-surface-variant": "#c7c5cf",
+                    "on-surface": "#e5e1e5",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "headline-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- Navigation Drawer (Shared Component) -->
+<aside class="hidden md:flex h-full w-64 fixed left-0 top-0 z-40 bg-surface-container-low border-r border-outline-variant flex-col gap-base p-base">
+<div class="flex flex-col gap-4 mb-8 px-4 py-6">
+<div class="w-12 h-12 rounded-full overflow-hidden mb-2 ring-2 ring-primary">
+<img class="w-full h-full object-cover" data-alt="A professional studio headshot of a senior system administrator in a high-tech corporate office environment. The lighting is moody and cinematic, featuring subtle purple rim lights against a dark, technologically sophisticated background. The aesthetic is clean, modern, and elite, reflecting the brand's exclusive and powerful identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy-bj_X6ohxOqitF8zzzSmQ559TCrc9R3KA0v30y02O3_rm4sMfG9t8GpIBYpTeZg04GIoAKacByLePLpYcfQtRWMeUDNg7A3VbmHoBc6csgRqVR_4wnAIHBD_4ETTcqmgWsipQ8OzycC9B8J8RxCmtZI3_tkoIKODL9cHxUVbx8nQtafuqex2zdfAY7q7ybByBIJJvb8T6qcFSQfyd5cEW4kJd7yviIQ0qHvlZDy5Nle-oaOisNciTuVLs0RsCnBaZ9SE8oiIj7HM"/>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-md text-primary tracking-tighter">Admin Panel</h2>
+<p class="text-label-md text-on-surface-variant uppercase tracking-widest">System Controller</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-5 transition-all duration-200" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-5 transition-all duration-200" href="productos.html">
+<span class="material-symbols-outlined">motorcycle</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-r-full font-bold transition-all duration-200" href="gestion_inventario.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface hover:pl-5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4 px-4">
+<button class="flex items-center gap-3 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</button>
+<p class="text-xs text-outline mt-4 opacity-50">v2.4.0</p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 relative min-h-screen">
+<!-- Animated Background -->
+
+<!-- Top App Bar -->
+<header class="bg-surface/80 backdrop-blur-xl sticky top-0 z-30 border-b border-on-surface/10">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary">APEX MOTO</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-lowest border border-outline-variant rounded-full px-6 py-2 w-80 text-body-md focus:ring-1 focus:ring-secondary focus:outline-none transition-all" placeholder="Search Inventory..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-2.5 text-on-surface-variant">search</span>
+</div>
+<button class="text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto relative z-10">
+<!-- Dashboard Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="glass-panel p-6 rounded-xl border-l-4 border-primary">
+<p class="text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Total SKU</p>
+<h3 class="text-display-lg-mobile font-display-lg-mobile text-on-surface">1,248</h3>
+<div class="mt-4 flex items-center text-primary text-sm font-semibold">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span> +12% this month
+                    </div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-l-4 border-tertiary">
+<p class="text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Low Stock Alerts</p>
+<h3 class="text-display-lg-mobile font-display-lg-mobile text-tertiary">24</h3>
+<div class="mt-4 flex items-center text-tertiary text-sm font-semibold">
+<span class="material-symbols-outlined text-sm mr-1">warning</span> Urgent restock needed
+                    </div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-l-4 border-error">
+<p class="text-label-md text-on-surface-variant uppercase tracking-widest mb-1">Out of Stock</p>
+<h3 class="text-display-lg-mobile font-display-lg-mobile text-error">08</h3>
+<div class="mt-4 flex items-center text-error text-sm font-semibold">
+<span class="material-symbols-outlined text-sm mr-1">block</span> Impacting sales
+                    </div>
+</div>
+</div>
+<!-- Filters & Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="flex flex-wrap gap-2">
+<button class="px-6 py-2 rounded-full bg-primary-container text-primary font-semibold text-sm">All Stock</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white transition-colors text-sm">Engines</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white transition-colors text-sm">Body Kits</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white transition-colors text-sm">Electronics</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-white transition-colors text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tune</span> Filters
+                    </button>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant rounded-xl hover:bg-surface-bright/10 transition-all font-semibold">
+<span class="material-symbols-outlined">download</span> Export CSV
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 accent-gradient text-white rounded-xl shadow-lg hover:brightness-110 transition-all font-bold">
+<span class="material-symbols-outlined">add</span> New Product
+                    </button>
+</div>
+</div>
+<!-- Inventory List Table -->
+<div class="glass-panel rounded-2xl overflow-hidden mb-section-gap">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/50">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Product Info</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">Category</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">In Stock</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">Status</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1: Normal Stock -->
+<tr class="glass-card-hover group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="object-cover w-full h-full" data-alt="A high-performance carbon fiber motorcycle muffler detail shot, showcasing the intricate weave of the carbon fiber and a polished titanium tip. The lighting is focused and dramatic, highlighting the texture and premium engineering of the part. Set against a dark, futuristic workshop background with subtle blue neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgfB5aLOug4zZaElJm0mT97YlR-JHJ152xj6DbBL_jOTf5NPWTEhrg5PCccKkCD3ik5I7KhiSUhF2w9z-0eBgTG933lTmUhY1uWigMRrB0LA98gEupvrA7Cb6YE5eqW4L19vb5gSSyUSon5Jrj9XxNq1jKDp8sVAli1k5eRTez8S6umTAdhrx--M-V5Yz4-74_j29_7PFOZEyg6Psl4RXJmnecdJKO6dP-SsNOLIox2kXty2qodsTKapYaaX4nbuHU7T9EkD3uCelK"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-body-md">Carbon Exhaust V-S3</p>
+<p class="text-xs text-on-surface-variant">SKU: AM-7729-CX</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">Exhaust Systems</span>
+</td>
+<td class="px-6 py-5 text-center font-bold text-headline-md">142</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center gap-2 text-green-400 text-xs font-bold bg-green-400/10 px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                                        Healthy
+                                    </div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors"><span class="material-symbols-outlined">update</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Low Stock Alert -->
+<tr class="glass-card-hover group bg-tertiary-container/10">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center overflow-hidden border border-tertiary/40">
+<img class="object-cover w-full h-full" data-alt="A macro photograph of an advanced motorcycle ECU module, featuring golden heat-sink fins and a sleek black casing with engraved Apex Moto branding. The module is surrounded by glowing orange ambient lighting, creating a high-tech electronic aesthetic. The image conveys precision engineering and high-performance electronics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlQb_35WfZBDX9xuhfcuBbKbgPqaTyn9RsUYK9X9UJomA3l1kuYlQSe8P4bMSS_kBAf5dMPdAJjDYuhSYEh81vqMl9bx-Ec6TBjV83gFwE6REJXUZ6C6EBVoIc3UTVMeCK_qcxTZzFE6eCQwCAVcbhUC9xuUES4S_hD6peZ6IilcThVGT4M2z6zz-yN3wD_UL-ja4rcjPaQ8q2VcF8HmHMC8asqVmNEn8RU3ITTXsFLOXtnq_rxUejePo5kVBhBZJzr9HcSAsxjCqF"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-body-md">ECU Pro-Tune Module</p>
+<p class="text-xs text-tertiary">SKU: AM-9941-EC</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">Electronics</span>
+</td>
+<td class="px-6 py-5 text-center font-bold text-headline-md text-tertiary">12</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center gap-2 text-tertiary text-xs font-bold bg-tertiary/10 px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+                                        Low Stock
+                                    </div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-tertiary-fixed-dim hover:text-tertiary transition-colors"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Standard Stock -->
+<tr class="glass-card-hover group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="object-cover w-full h-full" data-alt="A pair of high-grip racing tires for a sport motorcycle, positioned artistically in a dark, minimalist showroom. The tires feature a complex tread pattern and are highlighted by soft, clinical white lighting that emphasizes their fresh rubber texture and performance-oriented design. The background is a blurred dark navy environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK2zS_YqCLwozZmb4J3EAmVN-6vqRAx8ZE_cISFfHXfkGps6wgruLRGl9FXDQJpgyEXHibi4jfrOxew1UcCJCdpOrgjE25Ptq7wRpoknuAXRHjG9je0FdPoNxYo_JlvRYs1c5vvau6HQGDeir55LbdAmFSHnRDuOPBYyRrz3_A7iQF20CWUuccSPOVvDyUP3ZaFE2BdZfSJThN7r208Fy2yUrKb8E0LMtEZJ0gziwAZHcKj7lekjPM-770MX1hupolxqHpGQRF5EZC"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-body-md">Ultra-Grip Racing Tires</p>
+<p class="text-xs text-on-surface-variant">SKU: AM-1102-TR</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">Components</span>
+</td>
+<td class="px-6 py-5 text-center font-bold text-headline-md">84</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center gap-2 text-green-400 text-xs font-bold bg-green-400/10 px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-green-400"></div>
+                                        Healthy
+                                    </div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-on-surface-variant hover:text-secondary transition-colors"><span class="material-symbols-outlined">update</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Critical Stock Alert -->
+<tr class="glass-card-hover group bg-error-container/10">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center overflow-hidden border border-error/40">
+<img class="object-cover w-full h-full" data-alt="Close-up of a high-end Brembo-style brake caliper finished in a vibrant, glossy red with white branding. The caliper is mounted on a drilled carbon-ceramic brake disc. The lighting is intense and focused, reflecting off the metallic surfaces. The overall mood is aggressive, performance-heavy, and high-quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj9ZgSTO97iLAqIR70wbJ29piYlSna5BFGVzSiXLlcurHmSjhjY5CyV1Wt9k35h8Iv64BdEoX9IZCTKvrVpKiagDsvUlU9xaNnan4OLHsewasZx2Vx7EpKLdXVoi5t1Qy53MFTREyXl57cvWeWSgXZnPSsgg6-ILNIBXF7RLxO8pcnRFWsIc2WIc6mGjFxn9hpDuDvCIj8Fe0KKPiCsoppTh1_xk3-xn_3UWaAvYT8P1F4w5gO1JbO0qLWsDuEPqkmnx4BZ2383BEg"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-body-md">Brembo Pro-Stop Kit</p>
+<p class="text-xs text-error">SKU: AM-5541-BR</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">Braking</span>
+</td>
+<td class="px-6 py-5 text-center font-bold text-headline-md text-error">02</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center gap-2 text-error text-xs font-bold bg-error/10 px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-error animate-ping"></div>
+                                        Critical
+                                    </div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-error font-bold hover:scale-110 transition-transform"><span class="material-symbols-outlined">priority_high</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-dim relative w-full mt-section-gap border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4">APEX MOTO</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Engineering the future of high-performance motorcycles since 1994.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-6">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-white transition-colors" href="#">Dealer Locator</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-white transition-colors" href="#">Shipping</a></li>
+<li><a class="text-on-surface-variant hover:text-white transition-colors" href="#">Returns</a></li>
+<li><a class="text-on-surface-variant hover:text-white transition-colors" href="#">Contact Engineering</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-6">Stay Updated</h4>
+<div class="flex gap-2">
+<input class="bg-surface-container-high border border-outline-variant rounded-lg px-4 py-2 w-full focus:ring-1 focus:ring-primary outline-none" placeholder="Email" type="email"/>
+<button class="p-2 bg-primary text-on-primary rounded-lg">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 py-8 px-margin-desktop text-center">
+<p class="text-label-md text-outline uppercase tracking-widest opacity-60">© 2024 APEX MOTO EXCLUSIVE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<!-- Mobile Bottom Nav (Shared Component) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-3 bg-surface-container/90 backdrop-blur-lg border-t border-white/10 z-50 rounded-t-xl shadow-2xl shadow-black">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-all" href="index.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-all" href="catalogo.html">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Catalog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl p-2 scale-95 active:scale-90 transition-transform" href="gestion_inventario.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-all" href="miperfil.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>    
+</a>
+</nav>
+</main>
+<script>
+        // Micro-interactions for inventory list
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.querySelector('.material-symbols-outlined').style.transform = 'scale(1.1)';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.querySelector('.material-symbols-outlined').style.transform = 'scale(1)';
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('purple-glow');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('purple-glow');
+        });
+    </script>
+</body></html>
