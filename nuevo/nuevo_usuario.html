@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RaidersParadise Moto Admin - Nuevo Usuario</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131316",
+                    "secondary-fixed": "#e7deff",
+                    "on-tertiary": "#432c07",
+                    "inverse-surface": "#e5e1e5",
+                    "surface-container": "#201f22",
+                    "outline": "#919099",
+                    "surface-container-low": "#1b1b1e",
+                    "surface-container-highest": "#353437",
+                    "on-primary-container": "#8689b5",
+                    "inverse-primary": "#575b84",
+                    "tertiary-fixed": "#ffddb3",
+                    "on-secondary-fixed": "#1f025e",
+                    "surface-dim": "#131316",
+                    "secondary-fixed-dim": "#ccbeff",
+                    "surface-container-lowest": "#0e0e11",
+                    "surface-tint": "#c0c3f2",
+                    "on-surface": "#e5e1e5",
+                    "primary-fixed-dim": "#c0c3f2",
+                    "background": "#131316",
+                    "secondary": "#ccbeff",
+                    "on-error": "#690005",
+                    "on-primary": "#292d53",
+                    "on-secondary-fixed-variant": "#4b398a",
+                    "surface-bright": "#39393c",
+                    "primary-fixed": "#dfe0ff",
+                    "on-surface-variant": "#c7c5cf",
+                    "tertiary-fixed-dim": "#e6c08f",
+                    "on-tertiary-fixed-variant": "#5c421b",
+                    "on-tertiary-container": "#a8875a",
+                    "primary-container": "#1e2247",
+                    "on-primary-fixed-variant": "#40446b",
+                    "surface-variant": "#353437",
+                    "tertiary": "#e6c08f",
+                    "surface-container-high": "#2a2a2d",
+                    "outline-variant": "#46464e",
+                    "on-tertiary-fixed": "#291800",
+                    "inverse-on-surface": "#303033",
+                    "primary": "#c0c3f2",
+                    "on-error-container": "#ffdad6",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "on-secondary": "#342072",
+                    "secondary-container": "#4d3b8d",
+                    "on-secondary-container": "#beadff",
+                    "tertiary-container": "#362100",
+                    "on-primary-fixed": "#14183d",
+                    "on-background": "#e5e1e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "body-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131316;
+            color: #e5e1e5;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(32, 31, 34, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .primary-gradient {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF2E00 100%);
+        }
+
+        .primary-gradient:hover {
+            background: linear-gradient(135deg, #FF7B1A 0%, #FF3D14 100%);
+        }
+
+        .input-focus-glow:focus {
+            border-color: #554395;
+            box-shadow: 0 0 10px rgba(85, 67, 149, 0.5);
+            outline: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #46464e;
+            border-radius: 10px;
+        }
+
+        .switch-toggle:checked + .switch-bg {
+            background-color: #c0c3f2;
+        }
+        .switch-toggle:checked + .switch-bg .switch-dot {
+            transform: translateX(1.5rem);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface custom-scrollbar">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.4)] h-16 flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200">menu</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary dark:text-primary">RaidersParadise</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:bg-white/5 transition-colors px-3 py-1 rounded-lg" href="#">Dashboard</a>
+<a class="text-primary font-bold px-3 py-1 rounded-lg" href="#">Users</a>
+<a class="text-on-surface-variant hover:bg-white/5 transition-colors px-3 py-1 rounded-lg" href="gestion_roles.html">Roles</a>
+<a class="text-on-surface-variant hover:bg-white/5 transition-colors px-3 py-1 rounded-lg" href="#">Inventory</a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20 ring-2 ring-primary/10">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a high-end tech executive wearing minimalist professional attire, soft dramatic lighting from the side, set against a dark architectural background. The aesthetic is clean, sharp, and premium, reflecting an elite corporate identity with deep shadows and subtle highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_CzB-3lpKrRe3LXWuXlvh2u6tKRASYzYSYK0tpO9FsiwzfaDUHMoa6FkzbMQejzBUK0a_dKnv0cbxT1Xt3FOtCXpf2iuJfzm0Xqlw8_qbr7G7mFXm59tchk_BMaSPVM71rvsih1uv9kH8i9kDwlOgyJUbhcPNyOmtJOM_grVJVjQiXb32fDLaTH6IM0tbaCojXBeQs28gwUbp2yQuSwPrC_A9cFGjKQn2CkM8qLYU8mHJhTbX49v0"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop min-h-screen flex flex-col items-center">
+<!-- Header Content -->
+<div class="w-full max-w-4xl mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-all border border-white/10 active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Nuevo Usuario</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Configura las credenciales y permisos del nuevo miembro del equipo.</p>
+</div>
+</div>
+</div>
+<!-- Form Container -->
+<form class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Information Section -->
+<div class="md:col-span-8 space-y-gutter">
+<div class="glass-card rounded-2xl p-8 space-y-6">
+<div class="flex items-center gap-3 border-b border-white/10 pb-4 mb-2">
+<span class="material-symbols-outlined text-secondary">person_add</span>
+<h3 class="font-headline-md text-headline-md">Datos Personales</h3>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Nombre Completo</label>
+<input class="bg-surface-container-lowest border border-white/10 rounded-xl px-4 py-3 text-on-surface font-body-md input-focus-glow transition-all" placeholder="Ej. Alexander Pierce" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Correo Electrónico</label>
+<input class="bg-surface-container-lowest border border-white/10 rounded-xl px-4 py-3 text-on-surface font-body-md input-focus-glow transition-all" placeholder="alexander@apexmoto.com" type="email"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Rol de Acceso</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border border-white/10 rounded-xl px-4 py-3 text-on-surface font-body-md input-focus-glow transition-all cursor-pointer">
+<option value="superadmin">Super Admin</option>
+<option value="ventas">Ventas</option>
+<option value="inventario">Inventario</option>
+<option value="soporte">Soporte</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Contraseña Temporal</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-white/10 rounded-xl px-4 py-3 text-on-surface font-body-md input-focus-glow transition-all" id="temp-password" type="password" value="••••••••"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="eye-icon">visibility_off</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-8 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">shield_person</span>
+</div>
+<div>
+<p class="font-headline-md text-body-lg text-on-surface font-semibold">Estado de la cuenta</p>
+<p class="font-body-md text-label-md text-on-surface-variant">Determina si el usuario puede iniciar sesión inmediatamente.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer switch-toggle" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer transition-all duration-300 switch-bg border border-white/10">
+<div class="absolute top-[2px] left-[2px] bg-white w-5 h-5 rounded-full transition-all duration-300 shadow-sm switch-dot"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Sidebar Actions Section -->
+<div class="md:col-span-4 space-y-gutter">
+<div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center">
+<div class="relative w-32 h-32 mb-6 group cursor-pointer">
+<div class="w-full h-full rounded-full border-4 border-dashed border-white/20 flex items-center justify-center overflow-hidden transition-all group-hover:border-primary">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-all">add_a_photo</span>
+</div>
+<div class="absolute bottom-1 right-1 bg-primary w-8 h-8 rounded-full flex items-center justify-center text-on-primary shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">edit</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Avatar de Usuario</h4>
+<p class="font-body-md text-label-md text-on-surface-variant px-4">Sube una foto (.jpg, .png) de máximo 2MB.</p>
+</div>
+<div class="glass-card rounded-2xl p-6 space-y-6">
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase border-b border-white/10 pb-2">Resumen de Cuenta</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md text-sm">Permisos</span>
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase">Nivel 2</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md text-sm">Región</span>
+<span class="text-on-surface text-sm">Global</span>
+</div>
+</div>
+<button class="w-full primary-gradient text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(255,107,0,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined">save</span>
+                        GUARDAR USUARIO
+                    </button>
+<button class="w-full bg-white/5 hover:bg-white/10 text-on-surface font-semibold py-4 rounded-xl border border-white/10 transition-all text-sm" type="button">
+                        CANCELAR
+                    </button>
+</div>
+</div>
+</form>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-t border-white/10 shadow-[0_-4px_30px_rgba(0,0,0,0.4)] flex justify-around items-center py-3 px-4 z-50 rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 shadow-[0_0_15px_rgba(204,190,255,0.3)]">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Users</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all" href="gestion_roles.html   ">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-md text-label-md">Roles</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim transition-all">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</div>
+</nav>
+<script>
+        function togglePassword() {
+            const pwdInput = document.getElementById('temp-password');
+            const eyeIcon = document.getElementById('eye-icon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                eyeIcon.textContent = 'visibility';
+            } else {
+                pwdInput.type = 'password';
+                eyeIcon.textContent = 'visibility_off';
+            }
+        }
+
+        // Micro-interaction for form focus
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.closest('.flex-col')?.classList.add('scale-[1.01]');
+            });
+            el.addEventListener('blur', () => {
+                el.closest('.flex-col')?.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

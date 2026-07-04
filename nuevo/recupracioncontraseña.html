@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Apex Moto | Restablecer Contraseña</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Load Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#c0c3f2",
+                    "surface": "#131316",
+                    "secondary-fixed": "#e7deff",
+                    "surface-container-highest": "#353437",
+                    "on-tertiary-fixed-variant": "#5c421b",
+                    "on-secondary-fixed": "#1f025e",
+                    "surface-bright": "#39393c",
+                    "primary-fixed": "#dfe0ff",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#291800",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#2a2a2d",
+                    "on-surface-variant": "#c7c5cf",
+                    "on-background": "#e5e1e5",
+                    "outline": "#919099",
+                    "surface-variant": "#353437",
+                    "tertiary": "#e6c08f",
+                    "tertiary-fixed": "#ffddb3",
+                    "inverse-on-surface": "#303033",
+                    "on-surface": "#e5e1e5",
+                    "surface-container-low": "#1b1b1e",
+                    "on-primary-fixed-variant": "#40446b",
+                    "on-tertiary": "#432c07",
+                    "surface-dim": "#131316",
+                    "outline-variant": "#46464e",
+                    "on-primary-fixed": "#14183d",
+                    "on-primary": "#292d53",
+                    "surface-container": "#201f22",
+                    "on-tertiary-container": "#a8875a",
+                    "on-secondary-fixed-variant": "#4b398a",
+                    "surface-container-lowest": "#0e0e11",
+                    "secondary-fixed-dim": "#ccbeff",
+                    "on-secondary": "#342072",
+                    "inverse-primary": "#575b84",
+                    "tertiary-container": "#362100",
+                    "background": "#131316",
+                    "inverse-surface": "#e5e1e5",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#e6c08f",
+                    "surface-tint": "#c0c3f2",
+                    "secondary-container": "#4d3b8d",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#ccbeff",
+                    "primary-container": "#1e2247",
+                    "primary": "#c0c3f2",
+                    "on-primary-container": "#8689b5",
+                    "on-secondary-container": "#beadff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131316;
+            color: #e5e1e5;
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(53, 52, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .primary-gradient {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+        }
+
+        .primary-gradient:hover {
+            background: linear-gradient(135deg, #FF7B1A 0%, #FF4D1A 100%);
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.4);
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(192, 195, 242, 0.07) 0%, rgba(19, 19, 22, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(85, 67, 149, 0.3);
+            border-color: #554395;
+            outline: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg-mobile md:text-headline-lg italic font-black text-primary tracking-widest uppercase">APEX MOTO</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform hover:text-secondary transition-colors duration-300">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Animated Shader Background (Visual Atmosphere) -->
+
+<!-- Main Content Area -->
+<main class="flex-grow flex items-center justify-center w-full px-margin-mobile py-24 md:py-32 relative z-10">
+<!-- Ambient Decorative Glows -->
+<div class="ambient-glow top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="ambient-glow bottom-0 right-0 translate-x-1/2 translate-y-1/2"></div>
+<div class="w-full max-w-md">
+<!-- Forgot Password Card -->
+<div class="glass-panel p-8 md:p-12 rounded-3xl shadow-2xl space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+<div class="space-y-4 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-container/30 text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">lock_reset</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">¿Olvidaste tu contraseña?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant/80">
+                        Ingresa tu correo electrónico y te enviaremos las instrucciones para restablecer tu cuenta.
+                    </p>
+</div>
+<!-- Form Section -->
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface-variant uppercase tracking-widest ml-1" for="email">
+                            Correo Electrónico
+                        </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">mail</span>
+<input class="w-full bg-surface-container-lowest/50 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant/30 font-body-md transition-all duration-300 focus:ring-0 focus:outline-none input-glow" id="email" placeholder="ejemplo@apex-moto.com" required="" type="email"
+        id="email"
+        name="email"
+        type="email"
+        placeholder="ejemplo@apex-moto.com"
+        required>
+</div>
+</div>
+<button class="w-full primary-gradient text-white font-headline-md text-headline-md-mobile py-5 rounded-xl uppercase tracking-widest transition-all duration-300 active:scale-[0.98] shadow-lg flex items-center justify-center gap-3" type="submit">
+                        Enviar Instrucciones
+                        <span class="material-symbols-outlined">send</span>
+</button>
+</form>
+<!-- Footer Link -->
+<div class="pt-4 text-center">
+<a class="font-label-md text-label-md text-primary hover:text-secondary transition-colors duration-300 flex items-center justify-center gap-2 group" href="login.html">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        Volver al Inicio de Sesión
+                    </a>
+</div>
+</div>
+<!-- Contextual Decorative Elements -->
+<div class="mt-12 flex justify-center items-center gap-8 opacity-40">
+<div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-white/20"></div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-[0.3em]">Precision Engineering</div>
+<div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-white/20"></div>
+</div>
+</div>
+</main>
+<!-- Visual Anchor: Product Image Background (Subtle) -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute bottom-0 right-0 w-full h-full bg-cover bg-right opacity-10" data-alt="A cinematic, low-angle close-up of a high-performance carbon-fiber motorcycle frame in a dimly lit, high-tech garage. The scene is characterized by deep navy shadows and sharp metallic highlights, reflecting a premium and technological aesthetic. Subtle orange glowing accents from the workshop's neon lighting hit the edges of the machinery, creating a sense of powerful speed and elite engineering excellence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvXJY072LAIyHD4PPTZvlD4S7rCsM6V15V5U_sbvceuEzubIQuBGzw-Vdi4ofx4k492xU3sWspbWYq9MOq1oRnxCL4UvAptOQKbXkfPa7LRm4QgXAGkPPnBzJvsQ2TX3pm_0_J7sSby9hnANZ6WtDgDNfHQ068uD6sODha2bVtpZOkKpOrJnnHGR9JaNWazBQSL3sRkWd4ElAPNKCwwCy5lmPJiWfLExFL_aV3cRmst1-0QbnxhykG')"></div>
+</div>
+<!-- Script for Micro-interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const button = form.querySelector('button');
+            const inputs = form.querySelectorAll('input');
+
+            // Simple hover effect for inputs
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.parentElement.querySelector('label').classList.add('text-primary');
+                });
+                input.addEventListener('blur', () => {
+                    input.parentElement.parentElement.querySelector('label').classList.remove('text-primary');
+                });
+            });
+
+            // Button active state simulation
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.98)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

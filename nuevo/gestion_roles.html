@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Apex Moto | Gestión de Roles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#353437",
+                    "error-container": "#93000a",
+                    "background": "#131316",
+                    "tertiary-fixed-dim": "#e6c08f",
+                    "surface": "#131316",
+                    "outline": "#919099",
+                    "surface-container": "#201f22",
+                    "tertiary": "#e6c08f",
+                    "surface-container-low": "#1b1b1e",
+                    "on-primary": "#292d53",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#2a2a2d",
+                    "tertiary-container": "#362100",
+                    "on-tertiary": "#432c07",
+                    "on-primary-container": "#8689b5",
+                    "on-tertiary-fixed-variant": "#5c421b",
+                    "tertiary-fixed": "#ffddb3",
+                    "on-primary-fixed-variant": "#40446b",
+                    "outline-variant": "#46464e",
+                    "on-error": "#690005",
+                    "inverse-primary": "#575b84",
+                    "on-secondary-container": "#beadff",
+                    "secondary": "#ccbeff",
+                    "surface-dim": "#131316",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#39393c",
+                    "on-surface": "#e5e1e5",
+                    "on-tertiary-container": "#a8875a",
+                    "surface-tint": "#c0c3f2",
+                    "on-secondary": "#342072",
+                    "inverse-surface": "#e5e1e5",
+                    "primary-container": "#1e2247",
+                    "secondary-fixed-dim": "#ccbeff",
+                    "primary-fixed-dim": "#c0c3f2",
+                    "on-surface-variant": "#c7c5cf",
+                    "secondary-container": "#4d3b8d",
+                    "surface-container-highest": "#353437",
+                    "primary-fixed": "#dfe0ff",
+                    "on-tertiary-fixed": "#291800",
+                    "on-primary-fixed": "#14183d",
+                    "on-secondary-fixed": "#1f025e",
+                    "on-background": "#e5e1e5",
+                    "surface-container-lowest": "#0e0e11",
+                    "on-secondary-fixed-variant": "#4b398a",
+                    "secondary-fixed": "#e7deff",
+                    "inverse-on-surface": "#303033",
+                    "primary": "#c0c3f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(32, 31, 34, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .orange-gradient {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+        }
+        .orange-gradient:hover {
+            background: linear-gradient(135deg, #FF822E 0%, #FF5722 100%);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131316;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #46464e;
+            border-radius: 10px;
+        }
+        body {
+            background-color: #0e0e11;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- NAVIGATION DRAWER -->
+<aside class="hidden md:flex h-full w-64 fixed left-0 top-0 z-40 bg-surface-container-low border-r border-outline-variant flex-col gap-base p-base transition-all duration-200 ease-out">
+<div class="flex flex-col items-start px-4 py-8 mb-4">
+<h2 class="font-headline-sm text-headline-sm text-primary">RaidersParadise</h2>
+<p class="text-on-surface-variant font-label-md text-label-md">Admin Panel</p>
+</div>
+<nav class="flex flex-col gap-1 overflow-y-auto custom-scrollbar">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6 group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6" href="gestion_de_usuario.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Users</span>
+</a>
+<!-- Active State for Roles -->
+<a class="flex items-center gap-4 px-4 py-3 bg-primary-container text-on-primary-container rounded-r-full font-bold transition-all pl-6" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-body-md text-body-md">Roles</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6" href="#">
+<span class="material-symbols-outlined">motorcycle</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Inventory</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Payments</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-r-full transition-all hover:pl-6" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4 flex flex-col gap-1">
+<div class="flex items-center gap-3 px-4 py-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary font-bold">A</div>
+<div class="flex flex-col">
+<span class="text-body-md font-bold truncate">System Controller</span>
+<span class="text-label-md text-on-surface-variant">v2.4.0</span>
+</div>
+</div>
+<a class="flex items-center gap-4 px-4 py-3 text-error hover:bg-error-container/10 rounded-r-full transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA -->
+<main class="md:ml-64 min-h-screen flex flex-col">
+<!-- TOP APP BAR -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-on-surface/10 shadow-deep-navy">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg text-[24px] md:text-display-lg tracking-tighter text-primary">GESTIÓN DE ROLES</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-8">
+<span class="text-primary border-b-2 border-primary cursor-default font-label-md text-label-md">ADMINISTRACIÓN</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">CONFIGURACIÓN</a>
+</div>
+<button class="text-primary hover:backdrop-blur-2xl hover:bg-surface-bright/10 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+</header>
+<!-- CONTENT CANVAS -->
+<section class="flex-grow px-margin-mobile md:px-margin-desktop py-base md:py-10 max-w-container-max mx-auto w-full">
+<!-- SEARCH AND ACTION HEADER -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+<div class="relative w-full md:max-w-md group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-xl py-3 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant transition-all glass-panel" placeholder="Buscar por nombre de rol..." type="text"/>
+</div>
+<button class="orange-gradient text-white font-bold px-8 py-3 rounded-full flex items-center justify-center gap-2 transition-all transform active:scale-95 shadow-lg shadow-black/40">
+<span class="material-symbols-outlined">add</span>
+<span>CREAR NUEVO ROL</span>
+</button>
+</div>
+<!-- ROLES GRID / LIST -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Role Card: Super Admin -->
+<div class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all hover:border-primary/40 group">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 flex-grow">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container/30 flex items-center justify-center text-secondary border border-secondary/20 shadow-inner">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Super Admin</h3>
+<div class="flex items-center gap-3">
+<span class="bg-primary/10 text-primary px-3 py-0.5 rounded-full text-[12px] font-bold tracking-wider border border-primary/20">ACCESO TOTAL</span>
+<span class="text-on-surface-variant text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                                    2 usuarios asignados
+                                </span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col md:items-end gap-2 text-on-surface-variant">
+<p class="text-body-md text-on-surface-variant md:text-right max-w-md">Control absoluto del sistema, gestión de usuarios, finanzas y configuración crítica.</p>
+<div class="flex gap-4 mt-2">
+<button class="flex items-center gap-1 hover:text-primary transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="text-label-md uppercase">Editar</span>
+</button>
+<button class="flex items-center gap-1 hover:text-error transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-label-md uppercase">Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Role Card: Ventas -->
+<div class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all hover:border-primary/40 group">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 flex-grow">
+<div class="w-14 h-14 rounded-2xl bg-primary-container/30 flex items-center justify-center text-primary border border-primary/20 shadow-inner">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Ventas</h3>
+<div class="flex items-center gap-3">
+<span class="bg-tertiary-container/40 text-tertiary px-3 py-0.5 rounded-full text-[12px] font-bold tracking-wider border border-tertiary/20">GESTIÓN DE PEDIDOS</span>
+<span class="text-on-surface-variant text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                                    12 usuarios asignados
+                                </span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col md:items-end gap-2 text-on-surface-variant">
+<p class="text-body-md text-on-surface-variant md:text-right max-w-md">Creación de facturas, seguimiento de leads y visualización de catálogo de productos.</p>
+<div class="flex gap-4 mt-2">
+<button class="flex items-center gap-1 hover:text-primary transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="text-label-md uppercase">Editar</span>
+</button>
+<button class="flex items-center gap-1 hover:text-error transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-label-md uppercase">Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Role Card: Inventario -->
+<div class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all hover:border-primary/40 group">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 flex-grow">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-on-surface-variant border border-outline-variant/20 shadow-inner">
+<span class="material-symbols-outlined text-3xl">inventory_2</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Inventario</h3>
+<div class="flex items-center gap-3">
+<span class="bg-outline-variant/30 text-on-surface-variant px-3 py-0.5 rounded-full text-[12px] font-bold tracking-wider border border-outline-variant/20">CONTROL DE STOCK</span>
+<span class="text-on-surface-variant text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                                    5 usuarios asignados
+                                </span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col md:items-end gap-2 text-on-surface-variant">
+<p class="text-body-md text-on-surface-variant md:text-right max-w-md">Actualización de niveles de stock, entrada de nuevas motocicletas y reporte de mermas.</p>
+<div class="flex gap-4 mt-2">
+<button class="flex items-center gap-1 hover:text-primary transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="text-label-md uppercase">Editar</span>
+</button>
+<button class="flex items-center gap-1 hover:text-error transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-label-md uppercase">Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Role Card: Soporte -->
+<div class="glass-panel p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all hover:border-primary/40 group">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 flex-grow">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container/10 flex items-center justify-center text-secondary-fixed border border-secondary/10 shadow-inner">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Soporte</h3>
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container/20 text-secondary px-3 py-0.5 rounded-full text-[12px] font-bold tracking-wider border border-secondary/20">SOLO LECTURA</span>
+<span class="text-on-surface-variant text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                                    8 usuarios asignados
+                                </span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col md:items-end gap-2 text-on-surface-variant">
+<p class="text-body-md text-on-surface-variant md:text-right max-w-md">Acceso a tickets de soporte técnico, historial de clientes y manuales de producto.</p>
+<div class="flex gap-4 mt-2">
+<button class="flex items-center gap-1 hover:text-primary transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="text-label-md uppercase">Editar</span>
+</button>
+<button class="flex items-center gap-1 hover:text-error transition-colors py-2 px-4 rounded-lg bg-white/5 border border-white/5">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-label-md uppercase">Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- PERMISSION SUMMARY STATS -->
+<div class="mt-section-gap grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-panel p-8 rounded-3xl text-center flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<div class="text-display-lg-mobile md:text-headline-lg font-headline-lg text-primary">27</div>
+<div class="text-label-md text-on-surface-variant uppercase tracking-widest mt-1">Usuarios Totales</div>
+</div>
+<div class="glass-panel p-8 rounded-3xl text-center flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary mb-4">
+<span class="material-symbols-outlined text-4xl">rule</span>
+</div>
+<div class="text-display-lg-mobile md:text-headline-lg font-headline-lg text-tertiary">142</div>
+<div class="text-label-md text-on-surface-variant uppercase tracking-widest mt-1">Permisos Únicos</div>
+</div>
+<div class="glass-panel p-8 rounded-3xl text-center flex flex-col items-center border-primary/20">
+<div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined text-4xl">history</span>
+</div>
+<div class="text-display-lg-mobile md:text-headline-lg font-headline-lg text-secondary">08:14</div>
+<div class="text-label-md text-on-surface-variant uppercase tracking-widest mt-1">Último Cambio</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="relative w-full mt-section-gap bg-surface-dim dark:bg-surface-dim border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-16 max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4">RaidersParadise</h2>
+<p class="text-body-md text-on-surface-variant max-w-sm mb-6">
+                        Plataforma de gestión centralizada para el ecosistema exclusivo de Apex Moto. Ingeniería de precisión, ahora en tu panel de control.
+                    </p>
+<div class="text-on-surface-variant font-label-md text-label-md">
+                        © 2026 RaidersParadise.
+                    </div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-[18px] text-on-surface uppercase tracking-wider mb-2">Legal</h4>
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-[18px] text-on-surface uppercase tracking-wider mb-2">Ayuda</h4>
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Shipping</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Returns</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Dealer Locator</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- MOBILE BOTTOM NAVBAR -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-surface-container/90 backdrop-blur-lg border-t border-white/10 px-margin-mobile py-3 z-50 rounded-t-xl shadow-2xl shadow-black">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-[10px]">Users</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/20 rounded-xl p-2 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-md text-[10px]">Roles</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-[10px]">Profile</span>
+</a>
+</nav>
+<!-- Background Decorative Elements (Vanilla JS Atmospherics) -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="glow-container"></div>
+<script>
+        // Atmospheric floating glows
+        const glowContainer = document.getElementById('glow-container');
+        const colors = ['rgba(192, 195, 242, 0.05)', 'rgba(204, 190, 255, 0.05)', 'rgba(255, 107, 0, 0.03)'];
+        
+        for (let i = 0; i < 6; i++) {
+            const glow = document.createElement('div');
+            glow.className = 'absolute rounded-full blur-[120px] transition-all duration-[10000ms] ease-in-out';
+            glow.style.width = Math.random() * 400 + 300 + 'px';
+            glow.style.height = glow.style.width;
+            glow.style.left = Math.random() * 100 + '%';
+            glow.style.top = Math.random() * 100 + '%';
+            glow.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            glowContainer.appendChild(glow);
+            
+            setInterval(() => {
+                glow.style.left = Math.random() * 100 + '%';
+                glow.style.top = Math.random() * 100 + '%';
+            }, 10000 + Math.random() * 5000);
+        }
+
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                if (!btn.classList.contains('orange-gradient')) {
+                    btn.style.transform = 'translateY(-2px)';
+                }
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
